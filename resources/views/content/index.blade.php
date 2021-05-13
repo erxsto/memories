@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Escape Velocity by HTML5 UP</title>
+		<title>MEMORIES</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -18,30 +18,28 @@
 				<section id="header" class="wrapper">
 
 					<!-- Logo -->
-						<div id="logo">
-							<h1><a href="index.html">Escape Velocity</a></h1>
-							<p>A free responsive site template by HTML5 UP</p>
+					<div id="logo">
+							<h1><a href="index.html">MEMORIES</a></h1>
+							<p>Los recuerdos lo son todo</p>
 						</div>
 
 					<!-- Nav -->
 						@include('layouts.menu')
 
 				</section>
-
+				<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ff8000;"></path></svg></div>
 			<!-- Intro -->
 				<section id="intro" class="wrapper style1">
-					<div class="title">The Introduction</div>
+					<div class="title">Inicio</div>
 					<div class="container">
-						<p class="style1">So in case you were wondering what this is all about ...</p>
+						<p class="style1">Aquí comienza una historia...</p>
 						<p class="style2">
-							Escape Velocity is a free responsive<br class="mobile-hide" />
-							site template by <a href="http://html5up.net" class="nobr">HTML5 UP</a>
+							¿Quieres dejar un mensaje, video u otra cosa que te interese a tus seres queridos?
+							podrás hacerlo <a href="./index" class="nobr">JUSTO AQUÍ</a>
 						</p>
-						<p class="style3">It's <strong>responsive</strong>, built on <strong>HTML5</strong> and <strong>CSS3</strong>, and released for
-						free under the <a href="http://html5up.net/license">Creative Commons Attribution 3.0 license</a>, so use it for any of
-						your personal or commercial projects &ndash; just be sure to credit us!</p>
+						<p class="style3">Adjunta lo que desees guardar en la nube:</p>
 						<ul class="actions">
-							<li><a href="#" class="button style3 large">Proceed</a></li>
+							<li><a href="#" class="button style3 large">Adjuntar</a></li>
 						</ul>
 					</div>
 				</section>
@@ -53,13 +51,13 @@
 
 						<!-- Image -->
 							<a href="#" class="image featured">
-								<img src="images/pic01.jpg" alt="" />
+								<img src="https://i.ytimg.com/vi/jROXJGGuKuI/maxresdefault.jpg"/>
 							</a>
 
 						<!-- Features -->
 							<section id="features">
 								<header class="style1">
-									<h2>Dolor consequat feugiat amet veroeros</h2>
+									<h2></h2>
 									<p>Feugiat dolor nullam orci pretium phasellus justo</p>
 								</header>
 								<div class="feature-list">
@@ -236,7 +234,7 @@
 						</div>
 						<div id="copyright">
 							<ul>
-								<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; memories.</li><li>Diseñador: <a href="./info">Erasto - Fabian</a></li>
 							</ul>
 						</div>
 					</div>

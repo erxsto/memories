@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Left Sidebar - Escape Velocity by HTML5 UP</title>
+		<title>MEMORIES</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -18,9 +18,9 @@
 				<section id="header" class="wrapper">
 
 					<!-- Logo -->
-						<div id="logo">
-							<h1><a href="index.html">Escape Velocity</a></h1>
-							<p>A free responsive site template by HTML5 UP</p>
+					<div id="logo">
+							<h1><a href="index.html">MEMORIES</a></h1>
+							<p>Los recuerdos lo son todo</p>
 						</div>
 
 					<!-- Nav -->
@@ -296,7 +296,7 @@
 						</div>
 						<div id="copyright">
 							<ul>
-								<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; memories.</li><li>Diseñador: <a href="./info">Erasto - Fabian</a></li>
 							</ul>
 						</div>
 					</div>
