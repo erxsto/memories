@@ -10,8 +10,11 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="strength.js"></script>
+		<script type="text/javascript" src="js.js"></script>
 	</head>
-	<body class="homepage is-preload">
+	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -24,99 +27,112 @@
 						</div>
 
 					<!-- Nav -->
-						@include('layouts.menu')
+					@include('layouts.menu')
 
-				</section>
-				<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ff8000;"></path></svg></div>
-			<!-- Intro -->
-				<section id="intro" class="wrapper style1">
-					<div class="title">Inicio</div>
-					<div class="container">
-						<p class="style1">Aquí comienza una historia...</p>
-						<p class="style2">
-							¿Quieres dejar un mensaje, video u otra cosa que te interese a tus seres queridos?
-							podrás hacerlo <a href="./index" class="nobr">JUSTO AQUÍ</a>
-						</p>
-
-						<p class="style3">Registrate para Comenzar</p></a></li>
-						<ul class="actions">
-							<li><a href="./registro" class="button style3 large">Registro</a></li>
-						
-						</ul>
-						<ul class="actions">
-							¿ya tienes una cuenta? <br><br>
-							<li><a href="#" class="">Iniciar sesión</a></li>
-						</ul>
-						<br><br>
-						<p class="style3">Adjunta lo que desees guardar en la nube:</p>
-						<ul class="actions">
-							<li><a href="#" class="button style3 large">Adjuntar</a></li>
-						</ul>
-					</div>
 				</section>
 
 			<!-- Main -->
 				<section id="main" class="wrapper style2">
-					<div class="title">The Details</div>
+					<div class="title">Left Sidebar</div>
 					<div class="container">
+						<div class="row gtr-150">
+							<div class="col-4 col-12-medium">
 
-						<!-- Image -->
-							<a href="#" class="image featured">
-								<img src="https://i.ytimg.com/vi/jROXJGGuKuI/maxresdefault.jpg"/>
-							</a>
+							
+									
 
-						<!-- Features -->
-							<section id="features">
-								<header class="style1">
-									<h2></h2>
-									<p>Feugiat dolor nullam orci pretium phasellus justo</p>
-								</header>
-								<div class="feature-list">
-									<div class="row">
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon fa-comment">Mattis velit diam vulputate</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate et magna feugiat laoreet vel velit lorem.</p>
-											</section>
-										</div>
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon solid fa-sync">Lorem ipsum dolor sit veroeros</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate et magna feugiat laoreet vel velit lorem.</p>
-											</section>
-										</div>
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon fa-image">Pretium phasellus justo lorem</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate et magna feugiat laoreet vel velit lorem.</p>
-											</section>
-										</div>
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon solid fa-cog">Tempus sed pretium orci</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate et magna feugiat laoreet vel velit lorem.</p>
-											</section>
-										</div>
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon solid fa-wrench">Aliquam consequat et feugiat</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate et magna feugiat laoreet vel velit lorem.</p>
-											</section>
-										</div>
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon solid fa-check">Dolore laoreet aliquam mattis</h3>
-												<p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate et magna feugiat laoreet vel velit lorem.</p>
-											</section>
+							</div>
+							<div class="col-8 col-12-medium imp-medium">
+
+								<!-- Content -->
+									<div id="content">
+										
+											
+											
+											
+										</article>
+										<div class="row gtr-150">
+											
+											<div class="c0ol-6 col-12-small">
+										
+												<section class="box">
+												<header class="style1">
+												<br>
+												<h2>REGISTRO</h2>
+											
+											</header>									
+				<h4>Los campos marcados con " * " son obligatiorios.</h4>
+				<hr>
+				<form action="{{ route('guardar_registro')}}" method="post" enctype="multipart/form-data">
+					{{ csrf_field() }}
+					<!--NOMBRE-->
+					Nombre*:
+					<br>
+					<input type="text" placeholder="" name="nombre" id="nombre" class="nombre" required="">
+					<td></td>
+					<br>
+
+					Apellido Paterno*:
+					<br>
+					<input type="text" placeholder="" name="primer_apellido" id="primer_apellido" class="primer_apellido" required="">
+					<td></td>
+					<br>
+
+
+					Apellido Materno*:
+					<br>
+					<input type="text" placeholder="" name="segundo_apellido" id="segundo_apellido" class="segundo_apellido" required="">
+					<td></td>
+					<br><br>
+
+
+					<!--CORREO-->
+					Correo*:
+					<br>
+					<input type="text" placeholder="" name="correo" id="correo" class="correo" required="">
+					<td><span id="smail" class="smail"></span></td>
+					<br><br>
+					<!--Contraseña-->
+					Contraseña*:
+					<br>
+					<input type="password" placeholder="" id="myPassword" name="contrasena"  required="">
+					
+					<br><br>
+
+					Confirmar contraseña*:
+					<br>
+					<input type="password" placeholder="" id="myPassword" name="contrasena" onchange="comprobarClave()"  required="">
+					<span class="conf" name="conf" id="conf"></span>
+					<br><br>
+
+					Fecha de Nacimiento*:
+					<br>
+					<input type="text" placeholder="00/00/0000" name="telefono" required="">
+
+
+					Telefono*:
+					<br>
+					<input type="text" placeholder="" name="telefono" required="">
+					
+
+					<br>
+
+					<input type="hidden" value="free" name="tip_usu">
+					Imagen:
+					<br>
+					<input type="text" name="img" id="img" class="img">
+					<br>
+					
+					<a href="#" class="button style1">More</a>
+					
+					</form>
+												</section>
+											</div>
 										</div>
 									</div>
-								</div>
-								<ul class="actions special">
-									<li><a href="#" class="button style1 large">Get Started</a></li>
-									<li><a href="#" class="button style2 large">More Info</a></li>
-								</ul>
-							</section>
 
+							</div>
+						</div>
 					</div>
 				</section>
 
@@ -261,5 +277,28 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<script src="assets/js/strength.min.js"></script>
+			<script id="rendered-js">
+			$(document).ready(function ($) {
+			$('#myPassword').strength({
+			strengthClass: 'strength',
+			strengthMeterClass: 'strength_meter',
+			strengthButtonClass: 'button_strength',
+			strengthButtonText: 'Mostrar contraseña',
+			strengthButtonTextToggle: 'Ocultar contraseña' });
+			});
+			</script>
+
+	<script type="text/javascript" >
+	function comprobarClave(){
+	    clave1 = document.contrasena.value
+	    clave2 = document.contrasena2.value
+
+	    if (clave1 == clave2)
+	       alert("Las contraseñas son iguales.")
+	    else
+	       alert("Las contraseñas no coinciden.")
+	}
+	</script>
 	</body>
 </html>
