@@ -39,38 +39,35 @@
         <!-- Main -->
 
         <!-- Highlights -->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1>Subir archivo</h1>
-                    <!--<div class="card">
-                        <div class="card-body">
-                            <form action="{{route('storef')}}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-group">
-                                    <input type="file" name="file" id="" accept=".doc,.docx,.pdf,.txt">
-                                    @error('file')
-                                    <small class="text-danger">{{$message}}</small>
-                                    @enderror
-                                </div>
-                                <button type="submit" class="btn btn-primary">Cargar</button>
-                            </form>
-                        </div>
-                    </div>-->
-                    <form action="{{route('storef')}}" method="POST" class="dropzone" id="my-awesome-dropzone">
-                    </form>
-                </div>
-            </div>
-        </div>
+
         <!-- Footer -->
-        <section id="footer" class="wrapper">
-            <div class="title">The Rest Of It</div>
+        <section id="main" class="wrapper style2">
+            <div class="title">Carga de archivos</div>
             <div class="container">
                 <header class="style1">
-                    <h2>Ipsum sapien elementum portitor?</h2>
+                    <h2>Puedes subir solo archivos de texto</h2>
                     <p>
-                        Sed turpis tortor, tincidunt sed ornare in metus porttitor mollis nunc in aliquet.<br />
-                        Nam pharetra laoreet imperdiet volutpat etiam feugiat.
+                    <div class="container">
+                        <div class="col">
+                            <h1>Subir archivo</h1>
+                            <!--<div class="card">
+                                    <div class="card-body">
+                                        <form action="{{route('storef')}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-group">
+                                                <input type="file" name="file" id="" accept=".doc,.docx,.pdf,.txt">
+                                                @error('file')
+                                                <small class="text-danger">{{$message}}</small>
+                                                @enderror
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Cargar</button>
+                                        </form>
+                                    </div>
+                                </div>-->
+                            <form action="{{route('storef')}}" method="POST" class="dropzone" id="my-awesome-dropzone">
+                            </form>
+                        </div>
+                    </div>
                     </p>
                 </header>
                 <div class="row">
@@ -167,8 +164,8 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
         Dropzone.options.myAwesomeDropzone = {
-            headers:{
-                'X-CSRF-TOKEN' : "{{ csrf_token() }}"
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
             },
             dictDefaultMessage: "Arrastre o toque para subir su archivo",
             acceptedFiles: ".doc,.docx,.pdf,.txt",
