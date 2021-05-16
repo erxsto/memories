@@ -47,7 +47,7 @@ class FileController extends Controller
         File::create([
             'url' => $url
         ]);
-        return redirect()->route('indexf');
+        
     }
 
     /**

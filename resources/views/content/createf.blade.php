@@ -6,8 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" />
 </head>
-
 <style>
     .amarillo {
         filter: hue-rotate(60deg) brightness(100%);
@@ -42,7 +43,7 @@
             <div class="row">
                 <div class="col">
                     <h1>Subir archivo</h1>
-                    <div class="card">
+                    <!--<div class="card">
                         <div class="card-body">
                             <form action="{{route('storef')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -55,7 +56,9 @@
                                 <button type="submit" class="btn btn-primary">Cargar</button>
                             </form>
                         </div>
-                    </div>
+                    </div>-->
+                    <form action="{{route('storef')}}" method="POST" class="dropzone" id="my-awesome-dropzone">
+                    </form>
                 </div>
             </div>
         </div>
@@ -153,7 +156,7 @@
         </section>
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
@@ -161,7 +164,18 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        Dropzone.options.myAwesomeDropzone = {
+            headers:{
+                'X-CSRF-TOKEN' : "{{ csrf_token() }}"
+            },
+            dictDefaultMessage: "Arrastre o toque para subir su archivo",
+            acceptedFiles: ".doc,.docx,.pdf,.txt",
+            maxFilesize: 500,
+            maxFiles: 5,
+        };
+    </script>
 </body>
 
 </html>
