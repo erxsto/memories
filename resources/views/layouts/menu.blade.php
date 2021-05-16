@@ -1,6 +1,6 @@
 <nav id="nav">
     <ul>
-        <li class="current"><a href="./index">Home</a></li>
+        <li class="current"><a href="{{route('index')}}">Home</a></li>
         <li>
             <a href="#">Apartado1</a>
             <ul>
@@ -20,8 +20,16 @@
                 <li><a href="#">Nisl tempus</a></li>
             </ul>
         </li>
-        <li><a href="./apartado2">apartado2</a></li>
-        <li><a href="./apartado3">apartado3</a></li>
-        <li><a href="./apartado4">apartado4</a></li>
+        <li><a href="{{route('apartado2')}}">apartado2</a></li>
+        <li><a href="{{route('apartado3')}}">apartado3</a></li>
+        <li><a href="{{route('apartado4')}}">apartado4</a></li>
+        <li><a href="{{route('planes')}}">Planes</a></li>
+        <li>
+            <a href="#">Subir</a>
+            <ul>
+                <li><a href="{{route('indexf')}}">Ver archivos</a></li>
+                <li><a href="{{route('createf')}}">Subir</a></li>
+            </ul>
+        </li>
     </ul>
 </nav>
