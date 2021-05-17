@@ -25,10 +25,10 @@
         <li><a href="{{route('apartado4')}}">apartado4</a></li>
         <li><a href="{{route('planes')}}">Planes</a></li>
         <li>
-            <a href="#">Subir</a>
+            <a href="#">Recuerdos</a>
             <ul>
-                <li><a href="{{route('indexf')}}">Ver archivos</a></li>
-                <li><a href="{{route('createf')}}">Subir</a></li>
+                <li><a href="{{route('indexf')}}">Mis recuerdos</a></li>
+                <li><a href="{{route('createf')}}">Subir recuerdos</a></li>
             </ul>
         </li>
     </ul>

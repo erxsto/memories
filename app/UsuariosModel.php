@@ -19,4 +19,8 @@ class UsuariosModel extends Model
         'tip_usu',
         'imagen',
     ];
+    //Relacion de uno a muchos
+    public function files(){
+    return $this->hasMany('App\File');
+}
 }

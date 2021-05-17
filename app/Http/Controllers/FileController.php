@@ -45,6 +45,7 @@ class FileController extends Controller
         $url = Storage::url($archivos);
         
         File::create([
+            'id_usuario' => auth()->user()->id,
             'url' => $url
         ]);
         
