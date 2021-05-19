@@ -58,79 +58,23 @@
 												<section class="box">
 												<header class="style1">
 												<br>
-												<h2>REGISTRO</h2>
-											
-											</header>									
-				<hr>
-				<form action="{{ route('guardar_registro')}}" method="post" enctype="multipart/form-data">
-					{{ csrf_field() }}
-					<!--NOMBRE-->
-					<B>Nombre*:</B>
-					<br>
-					<input type="text" placeholder="" name="nombre" id="nombre" class="nombre" required="">
-					<td></td>
-					<br>
-
-					<B>Apellido Paterno*:</B>
-					<br>
-					<input type="text" placeholder="" name="app" id="app" class="app" required="">
-					<td></td>
-					<br>
-
-
-					<B>Apellido Materno*:</B>
-					<br>
-					<input type="text" placeholder="" name="apm" id="apm" class="apm" required="">
-					<td></td>
-					<br><br>
-
-
-					<!--CORREO-->
-					<B>Correo*:</B>
-					<br>
-					<input type="text" placeholder="" name="correo" id="correo" class="correo" required="">
-					<td><span id="smail" class="smail"></span></td>
-					<br><br>
-					<!--Contraseña-->
-					<B>Contraseña*:</B>
-					<br>
-					<input type="password" placeholder="" id="myPassword" name="contrasena"  required="">
-					
-					<br>
-
-					<B>Confirmar contraseña*:</B>
-					<br>
-					<input type="password" placeholder="" id="myPassword2" name="contrasena2" onchange="comprobarClave()"  required="">
-					<span class="conf" name="conf" id="conf"></span>
-					<br><br>
-
-					<B> Fecha de Nacimiento*:</B>
-					<br>
-					<input type="date" placeholder="00/00/0000" name="fn" required="">
-					
-					<br> <br>
-
-					<B>Telefono*:</B> 
-					<br>
-					<input type="tel" placeholder="" id="telefono" name="telefono">
-					<span id="stel"></span>
-					<br> <br>
-					
-
-					<br>
-					
-					<!--  TIPO USUARIO -->
-
-					<input type="hidden" value="free" name="tip_usu">
-
-					<B>Imagen:</B>
-					<br>
-					<input type="text" name="imagen" id="imagen" class="imagen">
-					<br>
-				    <h4>Los campos marcados con " * " son obligatiorios.</h4>
-					
-					<button type="submit"> Listo </button>					
-					</form>
+												<center>
+        <h3>Inicia Sesion</h3>
+        <hr>
+        <form name="login" action="{{ route ('validar')}}" method="post">
+            {{ csrf_field() }}           
+                                  
+                                  
+        Correo: <input type="text" value="correo" name="correo"><br><br>
+        Contraseña: <input type="password" value="contrasena" name="contrasena"><br><br>
+        <input type="submit" value="Entrar">
+        <br>
+        </form>
+    
+        <a href="#" class="forg-left">¿olvídaste tu contraseña?</a> <br>
+        <h4>¿Aún no tienes una cuenta?</h4>
+        <a href="{{ route('registro') }}" class="forg-right">Regístrate</a> <br>
+    </center>			
 												</section>
 											</div>
 										</div>

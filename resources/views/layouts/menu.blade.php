@@ -25,11 +25,41 @@
         <li><a href="{{route('apartado4')}}">apartado4</a></li>
         <li><a href="{{route('planes')}}">Planes</a></li>
         <li>
+
             <a href="#">Recuerdos</a>
             <ul>
                 <li><a href="{{route('indexf')}}">Mis recuerdos</a></li>
                 <li><a href="{{route('createf')}}">Subir recuerdos</a></li>
             </ul>
         </li>
+
+        @if(session('session_tipo')=='free')
+                                
+        <li>{{session('session_name')}}</li>
+        
+        <li><a href="{{ URL::action('LoginController@perfil') }}">Perfil</a></li>
+		<li><a href="{{ URL::action('LoginController@logout') }}">Cerrar Sesión</a></li>
+        
+				            	
+		@else
+
+		@if(session('session_tipo')=='basico')
+            
+        <li>{{session('session_name')}}</li>
+        <span class="arrow_carrot-down"></span>
+        <ul>
+        <li><a href="{{ URL::action('App\Http\Controllers\LoginController@administracion') }}">Perfil</a></li>
+		<li><a href="{{ URL::action('App\Http\Controllers\LoginController@logout') }}">Cerrar Sesión</a></li>
+        </ul>
+			
+		@else
+		<meta http-equiv="Refresh" content="URL={{route('index')}} ">
+        
+        <LI>    <a href="./login"><i class="fa fa-user"></i> Login</a></LI>
+		@endif
+		@endif
+        </ul>
     </ul>
+
+    
 </nav>

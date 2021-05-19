@@ -14,6 +14,15 @@
 		<script type="text/javascript" src="strength.js"></script>
 		<script type="text/javascript" src="js.js"></script>
 	</head>
+	<style>
+	.transformacion2 { text-transform: uppercase;}
+	.free { color:#496159 ;
+		font-weight: bold;
+	 }
+	.img-radius {
+    border-radius: 5px
+	}
+	</style>
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
 
@@ -34,103 +43,29 @@
 			<!-- Main -->
 				<section id="main" class="wrapper style2">
 					<div class="title">Left Sidebar</div>
+					
 					<div class="container">
+					<center>
+					PERFIL - CUENTA <text class="transformacion2 free">{{session('session_tipo')}}</text>
+					<br><br><br>
+					<img src="{{ asset('images/Usuarios/'.$usu->imagen) }}" width="18%" class="img-radius" alt="User-Profile-Image">
+					<br><br>
+					Nombre: <h5 class="f-w-600" > {{ $usu->nombre }} {{ $usu->app }} {{ $usu->apm }}</h5>
+					</center>
 						<div class="row gtr-150">
 							<div class="col-4 col-12-medium">
-
-							
 									
 
 							</div>
-							<div class="col-8 col-12-medium imp-medium">
+						</div>	
 
 								<!-- Content -->
-									<div id="content">
+									
 										
-											
-											
-											
-										</article>
-										<div class="row gtr-150">
-											
-											<div class="c0ol-6 col-12-small">
-										
-												<section class="box">
-												<header class="style1">
-												<br>
-												<h2>REGISTRO</h2>
-											
-											</header>									
-				<hr>
-				<form action="{{ route('guardar_registro')}}" method="post" enctype="multipart/form-data">
-					{{ csrf_field() }}
-					<!--NOMBRE-->
-					<B>Nombre*:</B>
-					<br>
-					<input type="text" placeholder="" name="nombre" id="nombre" class="nombre" required="">
-					<td></td>
-					<br>
-
-					<B>Apellido Paterno*:</B>
-					<br>
-					<input type="text" placeholder="" name="app" id="app" class="app" required="">
-					<td></td>
-					<br>
-
-
-					<B>Apellido Materno*:</B>
-					<br>
-					<input type="text" placeholder="" name="apm" id="apm" class="apm" required="">
-					<td></td>
-					<br><br>
-
-
-					<!--CORREO-->
-					<B>Correo*:</B>
-					<br>
-					<input type="text" placeholder="" name="correo" id="correo" class="correo" required="">
-					<td><span id="smail" class="smail"></span></td>
-					<br><br>
-					<!--Contraseña-->
-					<B>Contraseña*:</B>
-					<br>
-					<input type="password" placeholder="" id="myPassword" name="contrasena"  required="">
-					
-					<br>
-
-					<B>Confirmar contraseña*:</B>
-					<br>
-					<input type="password" placeholder="" id="myPassword2" name="contrasena2" onchange="comprobarClave()"  required="">
-					<span class="conf" name="conf" id="conf"></span>
-					<br><br>
-
-					<B> Fecha de Nacimiento*:</B>
-					<br>
-					<input type="date" placeholder="00/00/0000" name="fn" required="">
-					
-					<br> <br>
-
-					<B>Telefono*:</B> 
-					<br>
-					<input type="tel" placeholder="" id="telefono" name="telefono">
-					<span id="stel"></span>
-					<br> <br>
-					
-
-					<br>
-					
-					<!--  TIPO USUARIO -->
-
-					<input type="hidden" value="free" name="tip_usu">
-
-					<B>Imagen:</B>
-					<br>
-					<input type="text" name="imagen" id="imagen" class="imagen">
-					<br>
-				    <h4>Los campos marcados con " * " son obligatiorios.</h4>
-					
-					<button type="submit"> Listo </button>					
-					</form>
+		<center>
+								
+    			
+    	</center>			
 												</section>
 											</div>
 										</div>
