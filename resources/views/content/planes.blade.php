@@ -99,7 +99,7 @@
 									
 									</table>
 									<ul class="actions">
-										<li><a href="#" class="button style1">Seleccionar</a></li>
+										<li><a href=".\perfil" class="button style1">Seleccionar</a></li>
 									</ul>
 								</section>
 							</div>

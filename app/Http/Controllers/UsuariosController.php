@@ -48,7 +48,7 @@ class UsuariosController extends Controller
                 $session_tipo = $request->session()->get('session_tipo');
 
             
-            return view ('content/planes');
+                return redirect()->route("planes");
         
     }
 }
