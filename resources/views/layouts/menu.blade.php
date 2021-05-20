@@ -34,32 +34,34 @@
         </li>
 
         @if(session('session_tipo')=='free')
-                                
-        <li>{{session('session_name')}}</li>
-        
-        <li><a href="{{ URL::action('LoginController@perfil') }}">Perfil</a></li>
-		<li><a href="{{ URL::action('LoginController@logout') }}">Cerrar Sesión</a></li>
-        
-				            	
-		@else
+        <li>
+            {{session('session_name')}}
+            <ul>
+                <li><a href="{{ URL::action('LoginController@perfil') }}">Perfil</a></li>
+                <li><a href="{{ URL::action('LoginController@logout') }}">Cerrar Sesión</a></li>
+            </ul>
+        </li>
 
-		@if(session('session_tipo')=='basico')
-            
+
+        @else
+
+        @if(session('session_tipo')=='basico')
+
         <li>{{session('session_name')}}</li>
         <span class="arrow_carrot-down"></span>
         <ul>
-        <li><a href="{{ URL::action('App\Http\Controllers\LoginController@administracion') }}">Perfil</a></li>
-		<li><a href="{{ URL::action('App\Http\Controllers\LoginController@logout') }}">Cerrar Sesión</a></li>
+            <li><a href="{{ URL::action('App\Http\Controllers\LoginController@administracion') }}">Perfil</a></li>
+            <li><a href="{{ URL::action('App\Http\Controllers\LoginController@logout') }}">Cerrar Sesión</a></li>
         </ul>
-			
-		@else
-		<meta http-equiv="Refresh" content="URL={{route('index')}} ">
-        
-        <LI>    <a href="./login"><i class="fa fa-user"></i> Login</a></LI>
-		@endif
-		@endif
-        </ul>
+
+        @else
+        <meta http-equiv="Refresh" content="URL={{route('index')}} ">
+
+        <LI> <a href="./login"><i class="fa fa-user"></i> Login</a></LI>
+        @endif
+        @endif
+    </ul>
     </ul>
 
-    
+
 </nav>
