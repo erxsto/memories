@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\File;
 use Illuminate\Http\Request;
-
+use Auth;
+use App\UsuariosModel;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class FileController extends Controller
 
@@ -37,18 +41,17 @@ class FileController extends Controller
      */
     public function storef(Request $request)
     {
+        
         $request->validate([
             'file' => 'required|file|max:500000|mimes:pdf,docx,doc,txt'
         ]);
+        $nombre = Str::random(10) . $request->file('file')->getClientOriginalName(); 
+        $ruta = storage_path() . '\app\public\archivos/' . $nombre;
         $archivos = $request->file('file')->store('public/archivos');
-
-        $url = Storage::url($archivos);
-        
         File::create([
-            'id_usuario' => auth()->user()->id,
-            'url' => $url
+            'id_usuario' => session('session_id'),
+            'url' => '/storage/archivos/' . $nombre
         ]);
-        
     }
 
     /**

@@ -9,7 +9,7 @@ class file extends Model
     protected $fillable = ['url', 'id_usuario'];
 
     //Relacion uno a muchos inverso
-    public function usuario(){
+    public function user(){
         return $this->belongsTo('App\UsuariosModel');
     }
 }
