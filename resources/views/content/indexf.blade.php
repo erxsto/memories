@@ -11,6 +11,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link href="assets/css/app.css" rel="stylesheet">
 </head>
 
 <style>
@@ -45,8 +46,30 @@
 		<!-- Highlights -->
 
 		<!-- Footer -->
-		<section id="footer" class="wrapper">
-			<div class="title">The Rest Of It</div>
+		<section id="main" class="wrapper style2">
+			<div class="container">
+				<div class="row">
+					@foreach($files as $file)
+					<div class="col-4">
+						<div class="card">
+							<img src="{{ asset($file->url) }}" alt="" class="img-fluid">
+							<div class="card-footer">
+								<!-- EDITAR <button href="{{ route('editf', $file) }}" class="btn btn-info">Editar</button> -->
+								<form action="{{ route('destroyf', $file) }}" class="d-inline" method="POST">
+									@method('DELETE')
+									@csrf
+									<button type="submit" class="btn btn-info">Eliminar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					@endforeach
+					<div class="col-12">
+						{{$files->links()}}
+					</div>
+				</div>
+			</div>
+			<div class="title">Mis recuerdos:</div>
 			<div class="container">
 				<header class="style1">
 					<h2>Ipsum sapien elementum portitor?</h2>
@@ -146,6 +169,9 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script></script>
 
 </body>
 

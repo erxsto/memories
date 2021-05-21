@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" />
 </head>
 <style>
@@ -161,7 +161,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
     <script>
         Dropzone.options.myAwesomeDropzone = {
             headers: {
@@ -169,7 +168,7 @@
             },
             dictDefaultMessage: "Arrastre o toque para subir su archivo",
             //          Imagenes
-            acceptedFiles: "image/*, .pdf",
+            acceptedFiles: "image/*",
             //          Archivos
             //acceptedFiles: ".doc,.docx,.pdf,.txt",
             //maxFilesize: 500,

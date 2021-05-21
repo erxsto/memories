@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\File;
 
 class MemoriesController extends Controller
 {
-    /*public function _construct()
-    {
-        $this->middleware('auth');
-    }*/
     public function index()
     {
 

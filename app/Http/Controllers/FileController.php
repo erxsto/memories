@@ -21,7 +21,8 @@ class FileController extends Controller
      */
     public function indexf()
     {
-        return view('content/indexf');
+        $files = File::where('id_usuario', session('session_id'))->paginate(2);
+        return view('content/indexf', compact('files'));
     }
 
     /**
@@ -57,7 +58,7 @@ class FileController extends Controller
         //              Imagenes
         
         $request->validate([
-            'file' => 'required|image'
+            'file' => 'required'
         ]);
         $nombre = Str::random(10) . $request->file('file')->getClientOriginalName();
         $ruta = storage_path() . '\app\public\archivos/' . $nombre;
@@ -112,8 +113,11 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroyf($file)
+    public function destroyf(File $file)
     {
-        //
+        $url = str_replace('storage', 'public', $file->url);
+        Storage::delete($url);
+        $file->delete();
+        return redirect()->route('indexf');
     }
 }
