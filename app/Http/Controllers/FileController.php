@@ -9,6 +9,7 @@ use App\UsuariosModel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class FileController extends Controller
 
@@ -41,13 +42,30 @@ class FileController extends Controller
      */
     public function storef(Request $request)
     {
-        
-        $request->validate([
+        //              Archivos
+
+        /*$request->validate([
             'file' => 'required|file|max:500000|mimes:pdf,docx,doc,txt'
         ]);
         $nombre = Str::random(10) . $request->file('file')->getClientOriginalName(); 
         $ruta = storage_path() . '\app\public\archivos/' . $nombre;
         $archivos = $request->file('file')->store('public/archivos');
+        File::create([
+            'id_usuario' => session('session_id'),
+            'url' => '/storage/archivos/' . $nombre
+        ]);*/
+        //              Imagenes
+        
+        $request->validate([
+            'file' => 'required|image'
+        ]);
+        $nombre = Str::random(10) . $request->file('file')->getClientOriginalName();
+        $ruta = storage_path() . '\app\public\archivos/' . $nombre;
+        Image::make($request->file('file'))
+            ->resize(1200, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->save($ruta);
         File::create([
             'id_usuario' => session('session_id'),
             'url' => '/storage/archivos/' . $nombre

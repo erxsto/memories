@@ -168,8 +168,11 @@
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
             },
             dictDefaultMessage: "Arrastre o toque para subir su archivo",
-            acceptedFiles: ".doc,.docx,.pdf,.txt",
-            maxFilesize: 500,
+            //          Imagenes
+            acceptedFiles: "image/*, .pdf",
+            //          Archivos
+            //acceptedFiles: ".doc,.docx,.pdf,.txt",
+            //maxFilesize: 500,
             maxFiles: 5,
         };
     </script>
