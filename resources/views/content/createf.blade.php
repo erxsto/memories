@@ -42,14 +42,14 @@
 
         <!-- Footer -->
         <section id="main" class="wrapper style2">
-            <div class="title">Carga de archivos</div>
+            <div class="title">Carga de recuerdos</div>
             <div class="container">
                 <header class="style1">
-                    <h2>Puedes subir solo archivos de texto</h2>
+                    <h2>Aquí puedes subir tus recuerdos!</h2>
                     <p>
                     <div class="container">
                         <div class="col">
-                            <h1>Subir archivo</h1>
+                            <h1>Subir recuerdo</h1>
                             <!--<div class="card">
                                     <div class="card-body">
                                         <form action="{{route('storef')}}" method="POST" enctype="multipart/form-data">
