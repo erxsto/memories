@@ -118,6 +118,6 @@ class FileController extends Controller
         $url = str_replace('storage', 'public', $file->url);
         Storage::delete($url);
         $file->delete();
-        return redirect()->route('indexf');
+        return redirect()->route('indexf')->with('eliminar', 'ok');
     }
 }
