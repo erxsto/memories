@@ -37,3 +37,18 @@ Route::name('showf')->get('showf/{file}','FileController@showf');
 Route::name('updatef')->put('updatef/{file}','FileController@updatef');
 Route::name('destroyf')->delete('destroyf/{file}','FileController@destroyf');
 Route::name('editf')->get('editf/{file}','FileController@editf');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//braintree suscription
+
+Route::get('/plans', 'PlansController@index');
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/plan/{plan}', 'PlansController@show');
+    Route::get('/braintree/token', 'BraintreeTokenController@token');
+    Route::post('/subscribe', 'SubscriptionsController@store');
+});
