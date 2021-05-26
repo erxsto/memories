@@ -20,7 +20,9 @@
   </div>
 @endsection
 @section('braintree')
+    
     <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $.ajax({
             url: '{{ url('braintree/token') }}'
