@@ -18,13 +18,13 @@ Route::name('planes')->get('planes/','UsuariosController@planes');
 
 //--------------registro--------------//
 
-Route::name('registro')->get('registro/','UsuariosController@registro');
-Route::name('guardar_registro')->post('guardar_registro/','UsuariosController@guardar_registro');
+// Route::name('registro')->get('registro/','UsuariosController@registro');
+// Route::name('guardar_registro')->post('guardar_registro/','UsuariosController@guardar_registro');
 
-//--------------login--------------//
-Route::name('login')->get('login/','LoginController@login');
-Route::name('validar')->post('validar/','LoginController@validar');
-Route::name('logout')->get('logout/','LoginController@logout');
+// //--------------login--------------//
+// Route::name('login')->get('login/','LoginController@login');
+// Route::name('validar')->post('validar/','LoginController@validar');
+// Route::name('logout')->get('logout/','LoginController@logout');
 Route::name('perfil')->get('perfil/','LoginController@perfil');
 
 
