@@ -62,74 +62,146 @@
 											
 											</header>									
 				<hr>
-				<form action="{{ route('guardar_registro')}}" method="post" enctype="multipart/form-data">
+				<form action="{{ route('register')}}" method="post" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<!--NOMBRE-->
-					<B>Nombre*:</B>
 					<br>
-					<input type="text" placeholder="" name="nombre" id="nombre" class="nombre" required="">
-					<td></td>
-					<br>
+					<div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
-					<B>Apellido Paterno*:</B>
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                    </div>
 					<br>
-					<input type="text" placeholder="" name="app" id="app" class="app" required="">
-					<td></td>
-					<br>
+					<div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+						<br>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+						<br>
 
 
-					<B>Apellido Materno*:</B>
-					<br>
-					<input type="text" placeholder="" name="apm" id="apm" class="apm" required="">
-					<td></td>
-					<br><br>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar contraseña') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+						<br>
 
-					<!--CORREO-->
-					<B>Correo*:</B>
-					<br>
-					<input type="text" placeholder="" name="correo" id="correo" class="correo" required="">
-					<td><span id="smail" class="smail"></span></td>
-					<br><br>
-					<!--Contraseña-->
-					<B>Contraseña*:</B>
-					<br>
-					<input type="password" placeholder="" id="myPassword" name="contrasena"  required="">
+                        <div class="form-group row">
+                            <label for="app" class="col-md-4 col-form-label text-md-right">{{ __('Primer apellido') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="app" type="text" class="form-control @error('app') is-invalid @enderror" name="app" value="{{ old('app') }}" required autocomplete="app" autofocus>
+
+                                @error('app')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+						<br>
+
+                        <div class="form-group row">
+                            <label for="apm" class="col-md-4 col-form-label text-md-right">{{ __('Segundo apellido') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="apm" type="text" class="form-control @error('apm') is-invalid @enderror" name="apm" value="{{ old('apm') }}" required autocomplete="apm" autofocus>
+
+                                @error('apm')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+						<br>
+
+                        <div class="form-group row">
+                            <label for="fn" class="col-md-4 col-form-label text-md-right">{{ __('fecha de nacimiento') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="fn" type="date" class="form-control @error('fn') is-invalid @enderror" name="fn" value="{{ old('fn') }}" required autocomplete="fn" autofocus>
+
+                                @error('fn')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+						<br>
+
+                        <div class="form-group row">
+                            <label for="telefono" class="col-md-4 col-form-label text-md-right">{{ __('telefono') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="telefono" type="tel" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono" autofocus>
+
+                                @error('telefono')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+						<br>
+                        
+                        <div class="form-group row">
+                            <label for="imagen" class="col-md-4 col-form-label tet-md-right">{{ __('imagen') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="imagen" type="text" class="form-control @error('imagen') is-invalid @enderror" name="imagen" value="{{ old('imagen') }}" required autocomplete="imagen" autofocus>
+
+                                @error('imagen')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+						<br>
 					
-					<br>
-
-					<B>Confirmar contraseña*:</B>
-					<br>
-					<input type="password" placeholder="" id="myPassword2" name="contrasena2" onchange="comprobarClave()"  required="">
-					<span class="conf" name="conf" id="conf"></span>
-					<br><br>
-
-					<B> Fecha de Nacimiento*:</B>
-					<br>
-					<input type="date" placeholder="00/00/0000" name="fn" required="">
-					
-					<br> <br>
-
-					<B>Telefono*:</B> 
-					<br>
-					<input type="tel" placeholder="" id="telefono" name="telefono">
-					<span id="stel"></span>
-					<br> <br>
-					
-
-					<br>
-					
-					<!--  TIPO USUARIO -->
-
-					<input type="hidden" value="free" name="tip_usu">
-
-					<B>Imagen:</B>
-					<br>
-					<input type="text" name="imagen" id="imagen" class="imagen">
-					<br>
-				    <h4>Los campos marcados con " * " son obligatiorios.</h4>
-					
-					<button type="submit"> Listo </button>					
+						<div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Listo') }}
+                                </button>
+                            </div>
+                        </div>				
 					</form>
 												</section>
 											</div>

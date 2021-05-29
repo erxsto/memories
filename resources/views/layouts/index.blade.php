@@ -1,4 +1,6 @@
 <!DOCTYPE HTML>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <!--
 	Escape Velocity by HTML5 UP
 	html5up.net | @ajlkn
@@ -10,8 +12,37 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- //----------- -->
+		<!-- Scripts -->
+		<script src="{{ asset('js/app.js') }}" defer></script>
+
+		<!-- Fonts -->
+		<link rel="dns-prefetch" href="//fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+		<!-- Styles -->
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</head>
 	<body class="homepage is-preload">
+	<style>
+	.xd{
+		color: black;
+	}
+	</style>
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -25,7 +56,6 @@
 
 					<!-- Nav -->
 						@include('layouts.menu')
-
 				</section>
 				<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ff8000;"></path></svg></div>
 			<!-- Intro -->
@@ -37,15 +67,9 @@
 							¿Quieres dejar un mensaje, video u otra cosa que te interese a tus seres queridos?
 							podrás hacerlo <a href="./index" class="nobr">JUSTO AQUÍ</a>
 						</p>
-
-						<p class="style3">Registrate para Comenzar</p></a></li>
-						<ul class="actions">
-							<li><a href="./registro" class="button style3 large">Registro</a></li>
 						
-						</ul>
-						<ul class="actions">
-							¿ya tienes una cuenta? <br><br>
-							<li><a href="#" class="">Iniciar sesión</a></li>
+						@yield('appblade')
+						
 						</ul>
 						<br><br>
 						<p class="style3">Adjunta lo que desees guardar en la nube:</p>
