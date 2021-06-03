@@ -1,7 +1,7 @@
 <nav id="nav">
     <ul>
-        <li class="current"><a href="{{route('index')}}">Home</a></li>
-        <li>
+        <li class="current"><a href="{{route('home')}}">Home</a></li>
+        <!--<li>
             <a href="#">Apartado1</a>
             <ul>
                 <li><a href="#">Lorem ipsum</a></li>
@@ -22,7 +22,7 @@
         </li>
         <li><a href="{{route('apartado2')}}">apartado2</a></li>
         <li><a href="{{route('apartado3')}}">apartado3</a></li>
-        <li><a href="{{route('apartado4')}}">apartado4</a></li>
+        <li><a href="{{route('apartado4')}}">apartado4</a></li>-->
         <li><a href="{{route('planes')}}">Planes</a></li>
         @guest
                             <li class="nav-item">
