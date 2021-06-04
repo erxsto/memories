@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\File;
 use Illuminate\Http\Request;
 use Auth;
-use App\UsuariosModel;
+use App\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +21,7 @@ class FileController extends Controller
      */
     public function indexf()
     {
-        $files = File::where('id_usuario', session('session_id'))->paginate(2);
+        $files = File::where('user_id', auth()->user()->id)->paginate(2);
         return view('content/indexf', compact('files'));
     }
 
@@ -68,7 +68,7 @@ class FileController extends Controller
             })
             ->save($ruta);
         File::create([
-            'id_usuario' => session('session_id'),
+            'user_id' => auth()->user()->id,
             'url' => '/storage/archivos/' . $nombre
         ]);
     }

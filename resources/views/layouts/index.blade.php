@@ -74,7 +74,7 @@
 						<br><br>
 						<p class="style3">Adjunta lo que desees guardar en la nube:</p>
 						<ul class="actions">
-							<li><a href="#" class="button style3 large">Adjuntar</a></li>
+							<li><a href="{{route('createf')}}" class="button style3 large">Subir</a></li>
 						</ul>
 					</div>
 				</section>
