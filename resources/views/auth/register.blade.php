@@ -1,21 +1,23 @@
 @extends('layouts.app')
 @section('content')
+
 <head>
-	<title>MEMORIES</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link href="assets/css/app.css" rel="stylesheet">
+    <title>MEMORIES</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="assets/css/app.css" rel="stylesheet">
+    <link rel="icon" href="{{ asset('/favicon.ico') }}">
 </head>
 
 <style>
-	.amarillo {
-		filter: hue-rotate(60deg) brightness(100%);
-	}
+    .amarillo {
+        filter: hue-rotate(60deg) brightness(100%);
+    }
 
-	.ok {
-		filter: hue-rotate(900deg) saturate(30%);
-	}
+    .ok {
+        filter: hue-rotate(900deg) saturate(30%);
+    }
 </style>
 <div class="container">
     <div class="row justify-content-center">
