@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Plan;
 use App\UsuariosModel;
 
 class UsuariosController extends Controller
@@ -12,7 +13,8 @@ class UsuariosController extends Controller
 
     public function planes(){
 
-        return view ('content/planes');
+        $plans = Plan::get();
+        return view('content.planes', compact('plans'));
     }
     public function registro(){
 

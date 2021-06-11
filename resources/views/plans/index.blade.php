@@ -1,28 +1,179 @@
 @extends('layouts.app')
 @section('content')
-<div class="container ">
-    <div class="row ">
-        <div class="col-md-8 col-md-offset-2 ">
-            <div class="panel panel-default ">
-                <div class="panel-heading ">Seleccione el Plan</div>
-<div class="panel-body">
-                    <ul class="list-group ">
-                        @foreach ($plans as $plan)
-                            <li class="list-group-item clearfix ">
-                                <div class="pull-left ">
-                                    <h4 style="color: red;"class="">{{ $plan->name }}</h4>
-                                    <h4 style="color: green;"class="">${{ number_format($plan->cost, 2) }} mensual</h4>
-                                    @if ($plan->description)
-                                        <p style="color:black;"class="">{{ $plan->description }}</p>
-                                    @endif
-                                </div>
-<a href="{{ url('/plan', $plan->slug) }}" style="color: black; font-weight: bolder;"class="btn btn-default pull-right ">Escoger este Plan</a>
-</li>
-                        @endforeach
+<section id="highlights" class="wrapper style3">
+    <div class="container">
+        <div class="row aln-center">
+            <div class="col-4 col-12-medium">
+                @foreach ($plans as $plan)
+                <section class="highlight">
+                    <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+                    <h3>{{ $plan->name }}</a></h3>
+
+
+                    <table style="color:#000000">
+                        <tr>
+                            <td><br></td>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                ${{ number_format($plan->cost, 2) }}
+                            </td>
+                            <td>
+                                <img width="15px;" src="images/paloma.png" alt="paloma">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @if ($plan->description)
+                                {{ $plan->description }}
+                                @endif
+                            </td>
+                            <td>
+                                <img width="15px;" src="images/paloma.png" alt="paloma">
+                            </td>
+                        </tr>
+                    </table>
+                    <ul class="actions">
+                        <li><a href=".\perfil" class="button style1">Seleccionar</a></li>
                     </ul>
-                </div>
+                </section>
             </div>
+            <!--
+					<div class="col-4 col-12-medium">
+						<section class="highlight">
+							<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+
+							<h3><a href="#">Básico</a></h3>
+
+							<table style="color:#000000">
+								<tr>
+									<td><br></td>
+									<td><br></td>
+								</tr>
+								<tr>
+									<td>
+										Texto - Imágen - Audio
+									</td>
+									<td>
+										<img class="amarillo" width="15px;" src="images/paloma.png" alt="paloma">
+									</td>
+								</tr>
+								<tr>
+									<td><br></td>
+									<td><br></td>
+								</tr>
+								<tr>
+									<td>
+										3 GB
+									</td>
+									<td>
+										<img class="amarillo" width="15px;" src="images/paloma.png" alt="paloma">
+									</td>
+								</tr>
+								<tr>
+									<td><br></td>
+									<td><br></td>
+								</tr>
+								<tr>
+									<td>
+										Visualización Y Descarga para herederos
+									</td>
+									<td>
+										<img class="amarillo" width="15px;" src="images/paloma.png" alt="paloma">
+									</td>
+								</tr>
+								<tr>
+									<td><br></td>
+									<td><br></td>
+								</tr>
+								<tr>
+									<td>
+										5 herederos
+									</td>
+									<td>
+										<img class="amarillo" width="15px;" src="images/paloma.png" alt="paloma">
+									</td>
+								</tr>
+
+							</table>
+							<ul class="actions">
+								<li><a href="#" class="button style1">Seleccionar</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="col-4 col-12-medium">
+						<section class="highlight">
+							<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+							<h3><a href="#">Premium</a></h3>
+
+
+
+							<table style="color:#000000">
+								<tr>
+									<td><br></td>
+									<td><br></td>
+								</tr>
+								<tr>
+									<td>
+										Texto - Imágen - Audio - Video
+									</td>
+									<td>
+										<img width="15px;" src="images/paloma.png" alt="paloma">
+									</td>
+								</tr>
+								<tr>
+									<td><br></td>
+									<td><br></td>
+								</tr>
+								<tr>
+									<td>
+										10 GB
+									</td>
+									<td>
+										<img width="15px;" src="images/paloma.png" alt="paloma">
+									</td>
+								</tr>
+								<tr>
+									<td><br></td>
+									<td><br></td>
+								</tr>
+								<tr>
+									<td>
+										Visualización Y Descarga para herederos
+									</td>
+									<td>
+										<img width="15px;" src="images/paloma.png" alt="paloma">
+									</td>
+								</tr>
+								<tr>
+									<td><br></td>
+									<td><br></td>
+								</tr>
+								<tr>
+									<td>
+										15 herederos
+									</td>
+									<td>
+										<img width="15px;" src="images/paloma.png" alt="paloma">
+									</td>
+								</tr>
+
+							</table>
+
+							</p>
+
+							<ul class="actions">
+								<li><a href="#" class="button style1">Seleccionar</a></li>
+							</ul>
+						</section>
+					</div>-->
+            @endforeach
         </div>
     </div>
-</div>
+</section>
 @endsection

@@ -50,9 +50,10 @@
 			<div class="container">
 				<div class="row aln-center">
 					<div class="col-4 col-12-medium">
+					@foreach ($plans as $plan)
 						<section class="highlight">
-							<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-							<h3><a href="#">Gratuito</a></h3>
+							<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+							<h3>{{ $plan->name }}</a></h3>
 
 
 							<table style="color:#000000">
@@ -62,10 +63,10 @@
 								</tr>
 								<tr>
 									<td>
-										Texto
+									${{ number_format($plan->cost, 2) }}
 									</td>
 									<td>
-										<img class="ok" width="15px;" src="images/paloma.png" alt="paloma">
+										<img width="15px;" src="images/paloma.png" alt="paloma">
 									</td>
 								</tr>
 								<tr>
@@ -74,43 +75,21 @@
 								</tr>
 								<tr>
 									<td>
-										500 Mb
+									@if ($plan->description)
+										{{ $plan->description }}
+                                    @endif
 									</td>
 									<td>
-										<img class="ok" width="15px;" src="images/paloma.png" alt="paloma">
+										<img width="15px;" src="images/paloma.png" alt="paloma">
 									</td>
 								</tr>
-								<tr>
-									<td><br></td>
-									<td><br></td>
-								</tr>
-								<tr>
-									<td>
-										Solo Visualización
-									</td>
-									<td>
-										<img class="ok" width="15px;" src="images/paloma.png" alt="paloma">
-									</td>
-								</tr>
-								<tr>
-									<td><br></td>
-									<td><br></td>
-								</tr>
-								<tr>
-									<td>
-										1 heredero
-									</td>
-									<td>
-										<img class="ok" width="15px;" src="images/paloma.png" alt="paloma">
-									</td>
-								</tr>
-
 							</table>
 							<ul class="actions">
 								<li><a href=".\perfil" class="button style1">Seleccionar</a></li>
 							</ul>
 						</section>
 					</div>
+					<!--
 					<div class="col-4 col-12-medium">
 						<section class="highlight">
 							<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
@@ -238,7 +217,8 @@
 								<li><a href="#" class="button style1">Seleccionar</a></li>
 							</ul>
 						</section>
-					</div>
+					</div>-->
+					@endforeach
 				</div>
 			</div>
 		</section>
