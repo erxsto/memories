@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto">
-            <li><a style="color: black;" href="{{ url('/plans') }}">Plans</a></li>
+            <li><a style="color: black;" href="{{ url('/plans') }}">Planes</a></li>
         </ul>
         <!-- Right Side Of Navbar -->
    

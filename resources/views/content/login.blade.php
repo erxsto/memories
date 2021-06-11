@@ -25,7 +25,7 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<h1><a href="index.html">MEMORIES</a></h1>
+				<h1>MEMORIES</h1>
 				<p>Los recuerdos lo son todo</p>
 			</div>
 
