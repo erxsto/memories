@@ -39,7 +39,7 @@
                         </tr>
                     </table>
                     <ul class="actions">
-                        <li><a href=".\perfil" class="button style1">Seleccionar</a></li>
+                        <li><a href="{{ url('/plan', $plan->slug) }}"  class="button style1">Seleccionar</a></li>
                     </ul>
                 </section>
             </div>

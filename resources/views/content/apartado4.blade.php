@@ -19,7 +19,7 @@
 
 					<!-- Logo -->
 					<div id="logo">
-							<h1><a href="index.html">MEMORIES</a></h1>
+							<h1><a href="{{route('login')}}">MEMORIES</a></h1>
 							<p>Los recuerdos lo son todo</p>
 						</div>
 

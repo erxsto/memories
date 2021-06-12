@@ -23,7 +23,7 @@
         <li><a href="{{route('apartado2')}}">apartado2</a></li>
         <li><a href="{{route('apartado3')}}">apartado3</a></li>
         <li><a href="{{route('apartado4')}}">apartado4</a></li>-->
-        <li><a href="{{route('planes')}}">Planes</a></li>
+        <li><a href="{{ url('/plans') }}">Planes</a></li>
         <li>
 
             <a href="#">Recuerdos</a>
