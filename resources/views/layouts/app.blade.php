@@ -15,7 +15,31 @@
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto">
             <li><a style="color: black;" href="{{ url('/plans') }}">Planes</a></li>
+           
+        
+           
+            
+            @if(Auth::user()->tip_usu == 'Basico')
+            <li><a style="color: black;" href="{{ url('/basicAcc') }}">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disfruta de tu suscripción | Plan Básico |
+            </a></li>
+
+            @elseif(Auth::user()->tip_usu == 'Premium')
+            <li><a style="color: black;" href="{{ url('/PremiumAcc') }}">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disfruta de tu suscripción | Premium | 
+            </a></li>
+            
+            @else
+            <li><a style="color: black;" href="{{ url('/freeAcc') }}">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free account (Suscribete para obtener grandes beneficios!.)
+            </a></li>
+            
+            
+            @endif
+    
+
         </ul>
+
         <!-- Right Side Of Navbar -->
    
    
