@@ -18,7 +18,7 @@
            
         
            
-            
+            @if(isset(Auth::user()->name))
             @if(Auth::user()->tip_usu == 'Basico')
             <li><a style="color: black;" href="{{ url('/basicAcc') }}">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disfruta de tu suscripción | Plan Básico |
@@ -36,7 +36,8 @@
             
             
             @endif
-    
+            @else
+            @endif
 
         </ul>
 

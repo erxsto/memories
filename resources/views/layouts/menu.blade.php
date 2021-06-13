@@ -1,6 +1,12 @@
-<nav id="nav">
-    <ul>
-        <li class="current"><a href="{{route('home')}}">Home</a></li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+        <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
         <!--<li>
             <a href="#">Apartado1</a>
             <ul>
@@ -23,15 +29,20 @@
         <li><a href="{{route('apartado2')}}">apartado2</a></li>
         <li><a href="{{route('apartado3')}}">apartado3</a></li>
         <li><a href="{{route('apartado4')}}">apartado4</a></li>-->
-        <li><a href="{{ url('/plans') }}">Planes</a></li>
-        <li>
+        <li class="nav-item"><a class="nav-link" href="{{ url('/plans') }}">Planes</a></li>
+        
+        <li class="nav-item dropdown">
 
-            <a href="#">Recuerdos</a>
+        
+            <a id="navbarDropdown"class="nav-link dropdown-toggle"href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recuerdos</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
             <ul>
-                <li><a href="{{route('indexf')}}">Mis recuerdos</a></li>
-                <li><a href="{{route('createf')}}">Subir recuerdos</a></li>
+            <a class="dropdown-item" href="{{route('indexf')}}">Mis recuerdos</a>
+            <a class="dropdown-item" href="{{route('createf')}}">Subir recuerdos</a>
             </ul>
         </li>
+        
         @guest
         <li class="nav-item">
             <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-user">{{ __('Login') }}</i></a>
@@ -42,13 +53,18 @@
         </li>
         @endif
         @else
+
+
+       
+
+
         <li class="nav-item dropdown">
 
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }} <span class="caret"></span>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                {{ Auth::user()->name }}
             </a>
 
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     {{ __('Salir') }}
@@ -61,6 +77,19 @@
             </div>
         </li>
         @endguest
+      
+      
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+
+    
         <!--           
         @if(session('session_tipo')=='free')
         <li>
