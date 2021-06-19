@@ -14,8 +14,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto">
-            <li><a style="color: black;" href="{{ url('/plans') }}">Planes</a></li>
-           
+        @if(!isset(Auth::user()->name))
+        <li><a style="color: black;" href="{{ url('/plans') }}">Planes</a></li>
+        @else
+        @endif   
         
            
             @if(isset(Auth::user()->name))

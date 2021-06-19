@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+<a class="navbar-brand" href="#"> <br></a> 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse nav navbar-nav navbar-center" id="navbarSupportedContent">
+    <ul class="navbar-nav m-auto">
      
         <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
         <!--<li>
@@ -29,8 +29,13 @@
         <li><a href="{{route('apartado2')}}">apartado2</a></li>
         <li><a href="{{route('apartado3')}}">apartado3</a></li>
         <li><a href="{{route('apartado4')}}">apartado4</a></li>-->
+        @if(!isset(Auth::user()->name))
         <li class="nav-item"><a class="nav-link" href="{{ url('/plans') }}">Planes</a></li>
-        
+        @else
+        <li class="nav-item"><a class="nav-link" href="{{ url('/myplan') }}">Gestionar Mi plan</a></li>
+
+        @endif
+        @if(isset(Auth::user()->name))
         <li class="nav-item dropdown">
 
         
@@ -42,7 +47,8 @@
             <a class="dropdown-item" href="{{route('createf')}}">Subir recuerdos</a>
             </ul>
         </li>
-        
+        @else
+        @endif
         @guest
         <li class="nav-item">
             <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-user">{{ __('Login') }}</i></a>
