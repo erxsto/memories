@@ -13,7 +13,8 @@ class SubscriptionsController extends Controller
           $plan = Plan::findOrFail($request->plan);
 
           $usuario = User::find(auth()->id());
-            $usuario->update(["tip_usu" => 'Premium']);
+            
+            $usuario->update(["tip_usu" => $plan->name]);
 
           
 // subscribe the user

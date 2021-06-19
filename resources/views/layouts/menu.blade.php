@@ -9,7 +9,7 @@
         <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
         <!--<li>
             <a href="#">Apartado1</a>
-            <ul>
+            <ul> 
                 <li><a href="#">Lorem ipsum</a></li>
                 <li><a href="#">Magna veroeros</a></li>
                 <li><a href="#">Etiam nisl</a></li>
@@ -29,12 +29,19 @@
         <li><a href="{{route('apartado2')}}">apartado2</a></li>
         <li><a href="{{route('apartado3')}}">apartado3</a></li>
         <li><a href="{{route('apartado4')}}">apartado4</a></li>-->
-        @if(!isset(Auth::user()->name))
-        <li class="nav-item"><a class="nav-link" href="{{ url('/plans') }}">Planes</a></li>
-        @else
+        @if(isset(Auth::user()->name) && (Auth::user()->tip_usu == 'Premium' || Auth::user()->tip_usu == 'VIP') )
         <li class="nav-item"><a class="nav-link" href="{{ url('/myplan') }}">Gestionar Mi plan</a></li>
-
+        @elseif(isset(Auth::user()->name) && (Auth::user()->tip_usu == 'free'))
+        <li class="nav-item"><a class="nav-link" href="{{ url('/plans') }}">Planes</a></li>
+       
+        
+        @elseif(!isset(Auth::user()->name))
+        
+        <li class="nav-item"><a class="nav-link" href="{{ url('/plans') }}">Planes</a></li>
+        
+        
         @endif
+        
         @if(isset(Auth::user()->name))
         <li class="nav-item dropdown">
 

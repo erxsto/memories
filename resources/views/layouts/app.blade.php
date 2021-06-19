@@ -21,14 +21,14 @@
         
            
             @if(isset(Auth::user()->name))
-            @if(Auth::user()->tip_usu == 'Basico')
-            <li><a style="color: black;" href="{{ url('/basicAcc') }}">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disfruta de tu suscripción | Plan Básico |
+            @if(Auth::user()->tip_usu == 'Premium')
+            <li><a style="color: black;" href="{{ url('/PremiumAcc') }}">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disfruta de tu suscripción | Plan Premium |
             </a></li>
 
-            @elseif(Auth::user()->tip_usu == 'Premium')
-            <li><a style="color: black;" href="{{ url('/PremiumAcc') }}">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disfruta de tu suscripción | Premium | 
+            @elseif(Auth::user()->tip_usu == 'VIP')
+            <li><a style="color: black;" href="{{ url('/VIPAcc') }}">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disfruta de tu suscripción | VIP | 
             </a></li>
             
             @else
