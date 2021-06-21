@@ -84,6 +84,11 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('indexf')
+            @yield('createf')
+            @yield('textcreates')
+            @yield('texteditar')
+            @yield('textindex')
         </main>
     </div>
     @yield('braintree')

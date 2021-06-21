@@ -1,52 +1,5 @@
-<!DOCTYPE HTML>
-<!--
-	Escape Velocity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-
-<head>
-	<title>MEMORIES</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link href="assets/css/app.css" rel="stylesheet">
-	<link rel="icon" href="{{ asset('/favicon.ico') }}">
-</head>
-
-<style>
-	.amarillo {
-		filter: hue-rotate(60deg) brightness(100%);
-	}
-
-	.ok {
-		filter: hue-rotate(900deg) saturate(30%);
-	}
-</style>
-
-<body class="left-sidebar is-preload">
-	<div id="page-wrapper">
-
-		<!-- Header -->
-		<section id="header" class="wrapper">
-
-			<!-- Logo -->
-			<div id="logo">
-				<h1><a href="{{route('login')}}">MEMORIES</a></h1>
-				<p>Los recuerdos lo son todo</p>
-			</div>
-
-			<!-- Nav -->
-			@include('layouts.menu')
-
-		</section>
-
-		<!-- Main -->
-
-		<!-- Highlights -->
-
-		<!-- Footer -->
+@extends('layouts.app')
+@section('indexf')
 		<section id="main" class="wrapper style2">
 			<div class="container">
 				<div class="row">
@@ -71,27 +24,12 @@
 				</div>
 			</div>
 			<div class="title">Mis recuerdos:</div>
-			<!--<div class="container">
-				<header class="style1">
-					<h2>Ipsum sapien elementum portitor?</h2>
-					<p>
-						Sed turpis tortor, tincidunt sed ornare in metus porttitor mollis nunc in aliquet.<br />
-						Nam pharetra laoreet imperdiet volutpat etiam feugiat.
-					</p>
-				</header>
-			</div>-->
 		</section>
-
-	</div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-	<script src="assets/js/app.js"></script>
+		<!--<section id="highlights" class="wrapper style3">
+		<div class="title">Mis recuerdos:</div>
+		<div class="container">
+		</div>
+	</section>-->
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	@if (session('eliminar') == 'ok')
 	<script>
@@ -125,7 +63,4 @@
 			})
 		});
 	</script>
-
-</body>
-
-</html>
+@endsection

@@ -10,10 +10,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::name('index')->get('index/','MemoriesController@index');
-Route::name('apartado2')->get('apartado2/','MemoriesController@apartado2');
-Route::name('apartado3')->get('apartado3/','MemoriesController@apartado3');
-Route::name('apartado4')->get('apartado4/','MemoriesController@apartado4');
+
 Route::name('planes')->get('planes/','UsuariosController@planes');
 
 //--------------registro--------------//
@@ -53,3 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/braintree/token', 'BraintreeTokenController@token');
     Route::post('/subscribe', 'SubscriptionsController@store');
 });
+
+Route::name('textcreates')->get('textcreates/','TextsController@textcreates');
+Route::name('store')->post('store/','TextsController@store');
+Route::name('textindex')->get('textindex/','TextsController@textindex');
+Route::name('texteditar')->get('texteditar/','TextsController@texteditar');

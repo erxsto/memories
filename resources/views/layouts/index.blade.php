@@ -15,10 +15,10 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link href="assets/css/app.css" rel="stylesheet">
 	<link rel="icon" href="{{ asset('/favicon.ico') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" />
 
 	<!-- //----------- -->
 	<!-- Scripts -->
-	<script src="{{ asset('js/app.js') }}" defer></script>
 
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -29,6 +29,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
 </head>
 
 <body class="homepage is-preload">
@@ -36,17 +37,13 @@
 		.xd {
 			color: black;
 		}
-	
-		
-		
-
 	</style>
 	<header class="header">
-	
-	@include('layouts.menu')
+
+		@include('layouts.menu')
 	</header>
-	
-	
+
+
 	<div id="page-wrapper">
 
 		<!-- Header -->
@@ -60,25 +57,23 @@
 
 			<!-- Nav -->
 		</section>
-		
 		@yield('appblade')
 		<div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
 				<path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ff8000;"></path>
 			</svg></div>
 		<!-- Intro -->
-				
-
-				</ul>
-				<br><br>
-			</div>
-		</section>
-
-		<!-- Main -->
+		</ul>
+		<br><br>
+	</div>
+	</section>
+	<!-- Main -->
 	</div>
 	</div>
 	</div>
 	</section>
 	</div>
+	<!-- Scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -86,7 +81,27 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-
+	<script>
+    Dropzone.options.myAwesomeDropzone = {
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        dictDefaultMessage: "Arrastre o toque para subir su archivo",
+        //          Imagenes
+        acceptedFiles: "image/*",
+        //          Archivos
+        //acceptedFiles: ".doc,.docx,.pdf,.txt",
+        //maxFilesize: 500,
+        maxFiles: 5,
+    };
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#desc'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 </body>
 
 </html>
