@@ -19,12 +19,12 @@
                         <td>{{ $text['titulo']}}</td>
                         <td>{!! $text['desc']!!}</td>
                         <td>
-                            <a href="{{ route('texteditar', [$text->id]) }}"><i class="btn btn-info">Editar</i></a>
+                            <a href="{{ route('texteditar', [$text->id]) }}" class="btn btn-outline-info">Editar</a>
                             <form action="{{ route('destroy', $text) }}" class="d-inline formulario-eliminar" method="POST">
-									@method('DELETE')
-									@csrf
-									<button type="submit" class="fas fa-trash-alt">Eliminar</button>
-								</form>
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                            </form>
                         </td>
 
                     </tr>
@@ -34,38 +34,37 @@
         </div>
     </div>
 </section>
-
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	@if (session('eliminar') == 'ok')
-	<script>
-		Swal.fire(
-			'Eliminado!',
-			'El recuerdo se eliminó con éxito.',
-			'success')
-	</script>
-	@endif
-	<script>
-		$('.formulario-eliminar').submit(function(e) {
-			e.preventDefault();
-			Swal.fire({
-				title: '¿Estás seguro?',
-				text: "¡Este recuerdo se eliminará definitivamente!",
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Si, ¡eliminar!',
-				cancelButtonText: 'Cancelar'
-			}).then((result) => {
-				if (result.isConfirmed) {
-					/*Swal.fire(
-						'Deleted!',
-						'Your file has been deleted.',
-						'success'
-					)*/
-					this.submit();
-				}
-			})
-		});
-	</script>
-    @endsection
+@if (session('eliminar') == 'ok')
+<script>
+    Swal.fire(
+        'Eliminado!',
+        'El recuerdo se eliminó con éxito.',
+        'success')
+</script>
+@endif
+<script>
+    $('.formulario-eliminar').submit(function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡Este recuerdo se eliminará definitivamente!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, ¡eliminar!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                /*Swal.fire(
+                	'Deleted!',
+                	'Your file has been deleted.',
+                	'success'
+                )*/
+                this.submit();
+            }
+        })
+    });
+</script>
+@endsection
