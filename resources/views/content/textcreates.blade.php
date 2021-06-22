@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('textcreates')
+@section('content')
 <h1>Aquí podrás escribir todo lo que tienes dentro de tu corazón!</h1>
 @if ($errors->any())
 <div class="alert alert-danger" role="alert">

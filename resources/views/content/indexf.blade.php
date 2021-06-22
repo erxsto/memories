@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('indexf')
+@section('content')
 		<section id="main" class="wrapper style2">
 			<div class="container">
 				<div class="row">

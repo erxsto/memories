@@ -19,6 +19,10 @@ class TextsController extends Controller
     }
 
     public function store(Request $request){
+        $data = request()->validate([
+            'titulo' => 'required|max:255',
+            'desc' => 'required'
+        ]);
         $user = auth()->user();
         $text = new Text();
         $text->titulo = $request->input('titulo');
@@ -27,8 +31,21 @@ class TextsController extends Controller
         $text->save();
         return redirect('textindex');
     }
-    public function texteditar(Request $request)
+    public function texteditar(Text $text)
     {
-        return view('content.texteditar');
+        $text = Text::find($text->id);
+        return view('content.texteditar', ['text' => $text]);
+    }
+    public function update(Request $request, Text $text)
+    {
+        $data = request()->validate([
+            'titulo' => 'required|max:255',
+            'desc' => 'required'
+        ]);
+        $text = Text::findOrFail($text->id);
+        $text->titulo = $request->input('titulo');
+        $text->desc = $request->input('desc');
+        $text->save();
+        return redirect('textindex');
     }
 }

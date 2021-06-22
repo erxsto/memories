@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('createf')
+@section('content')
         <section id="main" class="wrapper style2">
             <div class="title">Carga de recuerdos</div>
             <div class="container">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('textindex')
+@section('content')
 <section id="main" class="wrapper style2">
     <div class="container">
         <div class="row">
@@ -7,8 +7,9 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Título</th>
+                        <th scope="col">Título del recuerdo</th>
                         <th scope="col">Descripción</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -16,7 +17,10 @@
                     <tr>
                         <td>{{ $text['id']}}</td>
                         <td>{{ $text['titulo']}}</td>
-                        <td>{{ $text['desc']}}</td>
+                        <td>{!! $text['desc']!!}</td>
+                        <td>
+                            <a href="{{ route('texteditar', [$text->id]) }}"><i class="fa fa-edit"></i></a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

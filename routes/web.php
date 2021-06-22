@@ -54,4 +54,5 @@ Route::group(['middleware' => 'auth'], function () {
 Route::name('textcreates')->get('textcreates/','TextsController@textcreates');
 Route::name('store')->post('store/','TextsController@store');
 Route::name('textindex')->get('textindex/','TextsController@textindex');
-Route::name('texteditar')->get('texteditar/','TextsController@texteditar');
+Route::name('texteditar')->get('texteditar/{text}','TextsController@texteditar');
+Route::name('update')->put('update/{text}','TextsController@update');
