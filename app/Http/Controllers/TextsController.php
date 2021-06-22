@@ -9,9 +9,8 @@ class TextsController extends Controller
 {
     public function textindex()
     {
-        $texts = Text::orderBy('id','desc')
-                    ->get();
-        return view('content.textindex', ['texts' => $texts]);
+        $texts = Text::get();
+        return view('content.textindex', compact('texts'));
     }
 
     public function textcreates(){
@@ -47,5 +46,11 @@ class TextsController extends Controller
         $text->desc = $request->input('desc');
         $text->save();
         return redirect('textindex');
+    }
+    public function destroy(Text $text, Request $request)
+    {
+        $text = Text::find($text->id);
+        $text->delete();
+        return redirect()->route('textindex')->with('eliminar', 'ok');
     }
 }

@@ -56,3 +56,4 @@ Route::name('store')->post('store/','TextsController@store');
 Route::name('textindex')->get('textindex/','TextsController@textindex');
 Route::name('texteditar')->get('texteditar/{text}','TextsController@texteditar');
 Route::name('update')->put('update/{text}','TextsController@update');
+Route::name('destroy')->delete('destroy/{text}','TextsController@destroy');

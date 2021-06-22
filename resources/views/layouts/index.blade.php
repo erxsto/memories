@@ -95,6 +95,7 @@
             console.error(error);
         });
 </script>
+@yield('js_text_page')
 </body>
 
 </html>
