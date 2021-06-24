@@ -19,6 +19,7 @@ class AgregarCamposauserS extends Migration
             $table->date('fn');
             $table->string('telefono',14)->nullable();
             $table->string('tip_usu',30);
+            $table->string('num_h',30);
             $table->string('imagen',30)->nullable();
         });
     }
@@ -36,6 +37,7 @@ class AgregarCamposauserS extends Migration
             $table->dropColumn('fn');
             $table->dropColumn('telefono');
             $table->dropColumn('tip_usu');
+            $table->dropColumn('num_h');
             $table->dropColumn('imagen');
         });
     }
