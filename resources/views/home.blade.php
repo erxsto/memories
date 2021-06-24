@@ -18,6 +18,17 @@
                     {{ session('session_tipo') }}
 
                 </div>
+                
+                
+               
+                <div class="p-3 mb-2 bg-dark text-white">Comienza Agregando Tus Herederos ({{ Auth::user()->num_h }} Disponibles)
+                    
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Agregar</a>
+
+                </div>
+               
+
+
             </div>
         </div>
     </div>

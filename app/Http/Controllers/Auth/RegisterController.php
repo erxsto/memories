@@ -78,6 +78,7 @@ class RegisterController extends Controller
             'fn' => $data['fn'],
             'telefono' => $data['telefono'],
             'tip_usu' => 'free',
+            'num_h' => 3,
             'imagen' => $data['imagen'],
         ]);
     }
