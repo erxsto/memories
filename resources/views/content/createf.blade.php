@@ -27,7 +27,7 @@
                             
                             <div>
                                 <select name="heredero" id="hereddero">
-                                    <option value="0">--Selecciona un Heredero--</option>
+                                    <option value="">--Selecciona un Heredero--</option>
                                     
                                     @foreach($herederos as $heredero)
                                     
