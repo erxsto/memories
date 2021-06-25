@@ -58,4 +58,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::name('texteditar')->get('texteditar/{text}','TextsController@texteditar');
     Route::name('update')->put('update/{text}','TextsController@update');
     Route::name('destroy')->delete('destroy/{text}','TextsController@destroy');
+
+    // Registro Herederos
+
+    Route::name('registro_h')->get('registro_h/','HerederosController@registro_h');
+    Route::name('guardar_registro')->post('guardar_registro/','HerederosController@guardar_registro');
+
+
 });

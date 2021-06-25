@@ -24,6 +24,17 @@
                                     </div>
                                 </div>-->
                             <form action="{{route('storef')}}" method="POST" class="dropzone" id="my-awesome-dropzone">
+                            
+                            <div>
+                                <select name="heredero" id="hereddero">
+                                    <option value="0">--Selecciona un Heredero--</option>
+                                    
+                                    @foreach($herederos as $heredero)
+                                    
+                                    <option value="{{$heredero->id_destinatario}}">{{$heredero->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             </form>
                         </div>
                     </div>
