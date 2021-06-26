@@ -6,6 +6,7 @@ use App\File;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\HerederosModel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,9 @@ class FileController extends Controller
     public function indexf()
     {
         $files = File::where('user_id', auth()->user()->id)->paginate(2);
+        
         return view('content/indexf', compact('files'));
+        
     }
 
     /**
@@ -32,7 +35,9 @@ class FileController extends Controller
      */
     public function createf()
     {
-        return view('content/createf');
+        $herederos= DB::select('SELECT * FROM destinatarios where user_id = '.auth()->user()->id);
+        return view('content/createf')
+        ->with(['herederos' => $herederos]);
     }
 
     /**
@@ -60,6 +65,7 @@ class FileController extends Controller
         $request->validate([
             'file' => 'required'
         ]);
+
         $nombre = Str::random(10) . $request->file('file')->getClientOriginalName();
         $ruta = storage_path() . '\app\public\archivos/' . $nombre;
         Image::make($request->file('file'))
@@ -69,6 +75,7 @@ class FileController extends Controller
             ->save($ruta);
         File::create([
             'user_id' => auth()->user()->id,
+            'id_destinatario' => $request->get('heredero'),
             'url' => '/storage/archivos/' . $nombre
         ]);
     }

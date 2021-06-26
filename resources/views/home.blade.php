@@ -18,6 +18,27 @@
                     {{ session('session_tipo') }}
 
                 </div>
+                
+                
+                @if((Auth::user()->num_h) > 1)
+               
+                <div class="p-3 mb-2 bg-dark text-white">Comienza Agregando Tus Herederos ({{ Auth::user()->num_h }} Disponibles)
+                
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./registro_h" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Agregar</a>
+                @else
+
+                <div class="p-3 mb-2 bg-dark text-white">Ups!, No te quedan Herederos para agregar ({{ Auth::user()->num_h }} Disponibles)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./editar_h" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Gestionar Herederos</a>
+                
+                </div>    
+                @endif
+                </div>
+
+
+               
+
+
             </div>
         </div>
     </div>

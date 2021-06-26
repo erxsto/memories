@@ -12,6 +12,7 @@
 								<form action="{{ route('destroyf', $file) }}" class="d-inline formulario-eliminar" method="POST">
 									@method('DELETE')
 									@csrf
+
 									<button type="submit" class="btn btn-info">Eliminar</button>
 								</form>
 							</div>
