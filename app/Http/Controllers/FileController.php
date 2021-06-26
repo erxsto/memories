@@ -22,7 +22,7 @@ class FileController extends Controller
      */
     public function indexf()
     {
-        $files = File::where('user_id', auth()->user()->id)->paginate(2);
+        $files = File::get();
         
         return view('content/indexf', compact('files'));
         
