@@ -29,6 +29,12 @@ class FileController extends Controller
             ->with(['files' => $files]);
     }
 
+    public function rec_herederos($id){
+
+        return File::where('id_destinatario', $id)->get();
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -33,6 +33,12 @@
 			<option value="{{$heredero->id_destinatario}}">{{$heredero->nombre}}</option>
 			@endforeach
 		</select>
+
+		<DIV ID="recuerdo_h">
+		
+		<br><br><br><br><br><br>
+		</DIV>
+
 				<table class="table table-hover table-dark">
 					<thead class="thead-dark">
 						<tr>
@@ -112,5 +118,35 @@
 					});
 				});;
 			}
+
+	
+</script>
+
+<script>
+	$(function () {
+		
+		$('#heredero').on('change', cambiodeh);
+
+	});
+
+
+	function cambiodeh(){
+
+		var h_id = $(this).val();
+		
+		//ajax
+
+		$.get('/memories/public/api/indexf/'+h_id+'/recuerdos', function (data){
+			var html_div = 'Recuerdos de : '+h_id+' <br>';
+			for( var i=0; i<data.length; i++)
+			
+			html_div += '<img src="'+data[i].url+'" alt="'+data[i].url+'"> <br>' ;
+			$('#recuerdo_h').html(html_div);
+		});
+		
+		
+
+
+	}
 </script>
 @endsection
