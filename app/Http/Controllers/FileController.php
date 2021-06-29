@@ -31,7 +31,11 @@ class FileController extends Controller
 
     public function rec_herederos($id){
 
-        return File::where('id_destinatario', $id)->get();
+        // return File::where('id_destinatario', $id)->get();
+
+        return \DB::select('SELECT f.id, f.id_destinatario, d.id_destinatario , d.nombre , d.app, d.apm, f.url
+        FROM files f, destinatarios d 
+        WHERE f.id_destinatario = d.id_destinatario AND f.id_destinatario = '.$id);
 
     }
 

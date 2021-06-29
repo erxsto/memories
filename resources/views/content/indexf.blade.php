@@ -137,11 +137,15 @@
 		//ajax
 
 		$.get('/memories/public/api/indexf/'+h_id+'/recuerdos', function (data){
-			var html_div = 'Recuerdos de : '+h_id+' <br>';
-			for( var i=0; i<data.length; i++)
-			
-			html_div += '<img src="'+data[i].url+'" alt="'+data[i].url+'"> <br>' ;
+			var html_div = '<br><br><div class="container"><div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">';
+			for( var i=0; i<data.length; i++){
+			var nombre = ''+data[0].nombre+' '+data[0].app+' '+data[0].apm+'' ;
+			html_div += '<div class="col"><div class="p-3 border bg-light"><img src="'+data[i].url+'" alt="'+data[i].url+'"></div></div><br>';
 			$('#recuerdo_h').html(html_div);
+			}
+			html_div += '</div></div><br><br><div class="alert alert-info" role="alert"> Recuerdos de '+nombre+'</div><br><br>' ;
+			$('#recuerdo_h').html(html_div);
+
 		});
 		
 		
