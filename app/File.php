@@ -12,4 +12,22 @@ class file extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+    public function scopeFile($query, $id)
+    {
+        if ($id != "") {
+            $query->where(\DB::raw('id'), $id);
+        }
+    }
+    public function scopeDestinatario($query, $id_destinatario)
+    {
+        if ($id_destinatario != "") {
+            $query->where(\DB::raw('id_destinatario'), $id_destinatario);
+        }
+    }
+    public function scopeNombre($query, $nombre)
+    {
+        if ($nombre != "") {
+            $query->where(\DB::raw('nombre'), $nombre);
+        }
+    }
 }

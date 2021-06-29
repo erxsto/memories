@@ -22,10 +22,11 @@ class FileController extends Controller
      */
     public function indexf()
     {
-        $files = File::get();
-        
-        return view('content/indexf', compact('files'));
-        
+        $files = File::all();
+        $herederos = HerederosModel::all();
+        return view('content/indexf')
+            ->with(['herederos' => $herederos])
+            ->with(['files' => $files]);
     }
 
     /**
@@ -35,9 +36,9 @@ class FileController extends Controller
      */
     public function createf()
     {
-        $herederos= DB::select('SELECT * FROM destinatarios where user_id = '.auth()->user()->id);
+        $herederos = DB::select('SELECT * FROM destinatarios where user_id = ' . auth()->user()->id);
         return view('content/createf')
-        ->with(['herederos' => $herederos]);
+            ->with(['herederos' => $herederos]);
     }
 
     /**
@@ -61,7 +62,7 @@ class FileController extends Controller
             'url' => '/storage/archivos/' . $nombre
         ]);*/
         //              Imagenes
-        
+
         $request->validate([
             'file' => 'required'
         ]);
