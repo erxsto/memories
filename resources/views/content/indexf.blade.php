@@ -33,9 +33,7 @@
 			<option value="{{$heredero->id_destinatario}}">{{$heredero->nombre}}</option>
 			@endforeach
 		</select>
-		<div class="container">
-			<div class="row">
-				<table class="table table-bordered" id="res" width="100%" cellspacing="0">
+				<table class="table table-hover table-dark">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">Id</th>
@@ -43,7 +41,6 @@
 							<th scope="col">Recuerdo</th>
 						</tr>
 					</thead>
-
 					<tbody>
 						@foreach ($herederos as $heredero)
 						<tr>
