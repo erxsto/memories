@@ -75,27 +75,39 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
-    Dropzone.options.myAwesomeDropzone = {
-        headers: {
-            'X-CSRF-TOKEN': "{{ csrf_token() }}"
-        },
-        dictDefaultMessage: "Arrastre o toque para subir su archivo",
-        //          Imagenes
-        acceptedFiles: "image/*",
-        //          Archivos
-        //acceptedFiles: ".doc,.docx,.pdf,.txt",
-        //maxFilesize: 500,
-        maxFiles: 5,
-    };
-</script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#desc'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-@yield('js_text_page')
+		Dropzone.options.myAwesomeDropzone = {
+			headers: {
+				'X-CSRF-TOKEN': "{{ csrf_token() }}"
+			},
+			dictDefaultMessage: "Arrastre o toque para subir su archivo",
+			//          Imagenes
+			acceptedFiles: "image/*",
+			//          Archivos
+			//acceptedFiles: ".doc,.docx,.pdf,.txt",
+			//maxFilesize: 500,
+			maxFiles: 5,
+		};
+	</script>
+	<script>
+		Dropzone.options.myAwesomeDropzonee = {
+			headers: {
+				'X-CSRF-TOKEN': "{{ csrf_token() }}"
+			},
+			dictDefaultMessage: "Arrastre o toque para subir su archivo",
+
+			//          Archivos
+			acceptedFiles: ".doc,.docx,.pdf,.txt",
+			maxFilesize: 500,
+		};
+	</script>
+	<script>
+		ClassicEditor
+			.create(document.querySelector('#desc'))
+			.catch(error => {
+				console.error(error);
+			});
+	</script>
+	@yield('js_text_page')
 </body>
 
 </html>

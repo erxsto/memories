@@ -29,14 +29,14 @@ class FileController extends Controller
             ->with(['files' => $files]);
     }
 
-    public function rec_herederos($id){
+    public function rec_herederos($id)
+    {
 
         // return File::where('id_destinatario', $id)->get();
 
         return \DB::select('SELECT f.id, f.id_destinatario, d.id_destinatario , d.nombre , d.app, d.apm, f.url
         FROM files f, destinatarios d 
-        WHERE f.id_destinatario = d.id_destinatario AND f.id_destinatario = '.$id);
-
+        WHERE f.id_destinatario = d.id_destinatario AND f.id_destinatario = ' . $id);
     }
 
     /**
@@ -90,7 +90,20 @@ class FileController extends Controller
             'url' => '/storage/archivos/' . $nombre
         ]);
     }
-
+    public function storeff(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|file|max:500000|mimes:pdf,docx,doc,txt'
+        ]);
+        $nombre = Str::random(10) . $request->file('file')->getClientOriginalName();
+        $ruta = storage_path() . '\app\public\archivos/' . $nombre;
+        $archivos = $request->file('file')->store('public/archivos');
+        File::create([
+            'user_id' => auth()->user()->id,
+            'id_destinatario' => $request->get('heredero'),
+            'url' => '/storage/archivos/' . $nombre
+        ]);
+    }
     /**
      * Display the specified resource.
      *

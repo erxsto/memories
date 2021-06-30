@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     //--------------files--------------//
     Route::name('indexf')->get('indexf/','FileController@indexf');
     Route::name('storef')->post('storef/','FileController@storef');
+    Route::name('storeff')->post('storeff/','FileController@storeff');
     Route::name('createf')->get('createf/','FileController@createf');
     Route::name('showf')->get('showf/{file}','FileController@showf');
     Route::name('updatef')->put('updatef/{file}','FileController@updatef');

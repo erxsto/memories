@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<!--
+
 <section id="main" class="wrapper style1">
 	<div class="container">
 		<div class="row">
@@ -9,7 +9,7 @@
 				<div class="card">
 					<img src="{{ asset($file->url) }}" alt="" class="img-fluid">
 					<div class="card-footer">
-						 EDITAR <button href="{{ route('editf', $file) }}" class="btn btn-info">Editar</button>
+						 <!--EDITAR <button href="{{ route('editf', $file) }}" class="btn btn-info">Editar</button>-->
 						<form action="{{ route('destroyf', $file) }}" class="d-inline formulario-eliminar" method="POST">
 							@method('DELETE')
 							@csrf
@@ -23,9 +23,8 @@
 		</div>
 	</div>
 	<div class="title">Mis recuerdos:</div>
-</section>-->
+</section
 <section id="highlights" class="wrapper style1">
-	<div class="title">Mis recuerdos de: </div>
 	<div class="text-center">
 		<select name="heredero" id="heredero">
 			<option value="">--Selecciona un Heredero--</option>
@@ -35,10 +34,10 @@
 			@endforeach
 		</select>
 		<div id="recuerdo_h">
-		<br><br><br><br><br><br>
+			<br><br><br><br><br><br>
 		</div>
-			</div>
-		</div>
+	</div>
+	</div>
 	</div>
 	<div class="container">
 	</div>
@@ -77,32 +76,32 @@
 	});
 </script>
 <script>
-	$(function () {
-		
+	$(function() {
+
 		$('#heredero').on('change', cambiodeh);
 
 	});
 
 
-	function cambiodeh(){
+	function cambiodeh() {
 
 		var h_id = $(this).val();
-		
+
 		//ajax
 
-		$.get('/memories/public/api/indexf/'+h_id+'/recuerdos', function (data){
+		$.get('/memories/public/api/indexf/' + h_id + '/recuerdos', function(data) {
 			var html_div = '<br><br><div class="container"><div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">';
-			for( var i=0; i<data.length; i++){
-			var nombre = ''+data[0].nombre+' '+data[0].app+' '+data[0].apm+'' ;
-			html_div += '<div class="col"><div class="p-3 border bg-light"><img src="http://127.0.0.1/memories/public/'+data[i].url+'" alt="http://127.0.0.1/memories/public/'+data[i].url+'" class="img-thumbnail" alt="" width="236" height="236"></div></div><br>';
-			$('#recuerdo_h').html(html_div);
+			for (var i = 0; i < data.length; i++) {
+				var nombre = '' + data[0].nombre + ' ' + data[0].app + ' ' + data[0].apm + '';
+				html_div += '<div class="col"><div class="p-3 border bg-light"><img src="http://127.0.0.1/memories/public/' + data[i].url + '" alt="http://127.0.0.1/memories/public/' + data[i].url + '" class="img-thumbnail" alt="" width="236" height="236"></div></div><br>';
+				$('#recuerdo_h').html(html_div);
 			}
-			html_div += '</div></div><br><br><div class="alert alert-info" role="alert"> Recuerdos de '+nombre+'</div><br><br>' ;
+			html_div += '</div></div><br><br><div class="alert alert-info" role="alert"> Recuerdos de ' + nombre + '</div><br><br>';
 			$('#recuerdo_h').html(html_div);
 
 		});
-		
-		
+
+
 
 
 	}

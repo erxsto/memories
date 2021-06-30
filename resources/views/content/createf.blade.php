@@ -8,7 +8,7 @@
                     <p>
                     <div class="container">
                         <div class="col">
-                            <h1>Subir recuerdo</h1>
+                            <h1>Subir recuerdos en formato imagen.</h1>
                             <!--<div class="card">
                                     <div class="card-body">
                                         <form action="{{route('storef')}}" method="POST" enctype="multipart/form-data">
@@ -26,7 +26,25 @@
                             <form action="{{route('storef')}}" method="POST" class="dropzone" id="my-awesome-dropzone">
                             
                             <div>
-                                <select name="heredero" id="hereddero">
+                                <select name="heredero" id="heredero">
+                                    <option value="">--Selecciona un Heredero--</option>
+                                    
+                                    @foreach($herederos as $heredero)
+                                    
+                                    <option value="{{$heredero->id_destinatario}}">{{$heredero->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="col">
+                            <h1>Subir recuerdos en formato documento.</h1>
+                            <form action="{{route('storeff')}}" method="POST" class="dropzone" id="my-awesome-dropzonee">
+                            
+                            <div>
+                                <select name="heredero" id="heredero">
                                     <option value="">--Selecciona un Heredero--</option>
                                     
                                     @foreach($herederos as $heredero)
