@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<!--
 <section id="main" class="wrapper style1">
 	<div class="container">
 		<div class="row">
@@ -8,7 +9,7 @@
 				<div class="card">
 					<img src="{{ asset($file->url) }}" alt="" class="img-fluid">
 					<div class="card-footer">
-						<!-- EDITAR <button href="{{ route('editf', $file) }}" class="btn btn-info">Editar</button> -->
+						 EDITAR <button href="{{ route('editf', $file) }}" class="btn btn-info">Editar</button>
 						<form action="{{ route('destroyf', $file) }}" class="d-inline formulario-eliminar" method="POST">
 							@method('DELETE')
 							@csrf
@@ -22,8 +23,8 @@
 		</div>
 	</div>
 	<div class="title">Mis recuerdos:</div>
-</section>
-<section id="highlights" class="wrapper style3">
+</section>-->
+<section id="highlights" class="wrapper style1">
 	<div class="title">Mis recuerdos de: </div>
 	<div class="text-center">
 		<select name="heredero" id="heredero">
@@ -33,40 +34,13 @@
 			<option value="{{$heredero->id_destinatario}}">{{$heredero->nombre}}</option>
 			@endforeach
 		</select>
-
-		<DIV ID="recuerdo_h">
-		
+		<div id="recuerdo_h">
 		<br><br><br><br><br><br>
-		</DIV>
-
-				<table class="table table-hover table-dark">
-					<thead class="thead-dark">
-						<tr>
-							<th scope="col">Id</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Recuerdo</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach ($herederos as $heredero)
-						<tr>
-							@foreach ($files as $file)
-							@if($file->id_destinatario == $heredero->id_destinatario)
-							<td>{{ $file['id_destinatario']}}</td>
-							<td>{{ $heredero['nombre']}}</td>
-							<td><img src="{{ asset($file->url) }}" class="img-thumbnail" alt="" width="236" height="236"></td>
-							@endif
-							@endforeach
-						</tr>
-						@endforeach
-					</tbody>
-
-				</table>
+		</div>
 			</div>
 		</div>
 	</div>
 	<div class="container">
-
 	</div>
 </section>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -103,26 +77,6 @@
 	});
 </script>
 <script>
-	$(document).ready(function() {
-				$("#heredero").change(function() {
-					var heredero = $(this).val();
-					$.ajax({
-						url: "{{route('indexf')}}",
-						type: "POST",
-						data: {
-							heredero: heredero
-						},
-						success: function(data) {
-							$('#res').html(data);
-						}
-					});
-				});;
-			}
-
-	
-</script>
-
-<script>
 	$(function () {
 		
 		$('#heredero').on('change', cambiodeh);
@@ -140,7 +94,7 @@
 			var html_div = '<br><br><div class="container"><div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">';
 			for( var i=0; i<data.length; i++){
 			var nombre = ''+data[0].nombre+' '+data[0].app+' '+data[0].apm+'' ;
-			html_div += '<div class="col"><div class="p-3 border bg-light"><img src="'+data[i].url+'" alt="'+data[i].url+'"></div></div><br>';
+			html_div += '<div class="col"><div class="p-3 border bg-light"><img src="http://127.0.0.1/memories/public/'+data[i].url+'" alt="http://127.0.0.1/memories/public/'+data[i].url+'" class="img-thumbnail" alt="" width="236" height="236"></div></div><br>';
 			$('#recuerdo_h').html(html_div);
 			}
 			html_div += '</div></div><br><br><div class="alert alert-info" role="alert"> Recuerdos de '+nombre+'</div><br><br>' ;
