@@ -66,4 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::name('guardar_registro')->post('guardar_registro/','HerederosController@guardar_registro');
 
 
+    //Youtube
+    Route::resource('video', 'VideoController');
+    
 });
