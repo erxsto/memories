@@ -20,6 +20,11 @@ class AgregarCamposauserS extends Migration
             $table->string('telefono',14)->nullable();
             $table->string('tip_usu',30);
             $table->string('num_h',30);
+            $table->string('num_t',30);
+            $table->string('num_i',30);
+            $table->string('num_f',30);
+            $table->string('num_a',30);
+            $table->string('num_v',30);
             $table->string('imagen',30)->nullable();
         });
     }
@@ -38,6 +43,11 @@ class AgregarCamposauserS extends Migration
             $table->dropColumn('telefono');
             $table->dropColumn('tip_usu');
             $table->dropColumn('num_h');
+            $table->dropColumn('num_t');
+            $table->dropColumn('num_i');
+            $table->dropColumn('num_f');
+            $table->dropColumn('num_a');
+            $table->dropColumn('num_v');
             $table->dropColumn('imagen');
         });
     }
