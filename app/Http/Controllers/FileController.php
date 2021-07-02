@@ -29,7 +29,7 @@ class FileController extends Controller
             ->with(['files' => $files]);
     }
 
-    public function rec_herederos($id)
+    public function rec_herederos($id) //recuerdos de cada heredero
     {
 
         // return File::where('id_destinatario', $id)->get();
@@ -47,6 +47,7 @@ class FileController extends Controller
     public function createf()
     {
         $herederos = DB::select('SELECT * FROM destinatarios where user_id = ' . auth()->user()->id);
+        
         return view('content/createf')
             ->with(['herederos' => $herederos]);
     }
@@ -89,6 +90,15 @@ class FileController extends Controller
             'id_destinatario' => $request->get('heredero'),
             'url' => '/storage/archivos/' . $nombre
         ]);
+        $usuario = User::find(auth()->id());
+
+        $int = (int)$usuario->num_i;
+        if($int>=1){
+        
+        $usuario->update(["num_i" => $int-1 ]);}
+        else{
+            return Redirect::back()->with('message',' Ups !');
+        }
     }
     public function storeff(Request $request)
     {
@@ -103,6 +113,15 @@ class FileController extends Controller
             'id_destinatario' => $request->get('heredero'),
             'url' => '/storage/archivos/' . $nombre
         ]);
+        $usuario = User::find(auth()->id());
+
+        $int = (int)$usuario->num_f;
+        if($int>=1){
+        
+        $usuario->update(["num_f" => $int-1 ]);}
+        else{
+            return Redirect::back()->with('message',' Ups !');
+        }
     }
     /**
      * Display the specified resource.

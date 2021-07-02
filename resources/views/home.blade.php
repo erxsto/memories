@@ -20,7 +20,7 @@
                 </div>
                 
                 
-                @if((Auth::user()->num_h) > 1)
+                @if((Auth::user()->num_h) > 0)
                
                 <div class="p-3 mb-2 bg-dark text-white">Comienza Agregando Tus Herederos ({{ Auth::user()->num_h }} Disponibles)
                 

@@ -6,6 +6,7 @@
                 <header class="style1">
                     <h2>Aquí puedes subir tus recuerdos!</h2>
                     <p>
+                    @if((Auth::user()->num_i) > 0)
                     <div class="container">
                         <div class="col">
                             <h1>Subir recuerdos en formato imagen.</h1>
@@ -38,11 +39,16 @@
                             </form>
                         </div>
                     </div>
+                    @else
+                    <a href="./indexf">Ya no puedes agregar más Imagenes, Gestiona las que ya tienes para continuar...</a>
+                    @endif
+                    @if((Auth::user()->num_f) > 0)
                     <div class="container">
                         <div class="col">
                             <h1>Subir recuerdos en formato documento.</h1>
                             <form action="{{route('storeff')}}" method="POST" class="dropzone" id="my-awesome-dropzonee">
                             
+
                             <div>
                                 <select name="heredero" id="heredero">
                                     <option value="">--Selecciona un Heredero--</option>
@@ -56,6 +62,9 @@
                             </form>
                         </div>
                     </div>
+                    @else
+                    <a href="./indexf">Ya no puedes agregar más Archivos, Gestiona los que ya tienes para continuar...</a>
+                    @endif
                     </p>
                 </header>
             </div>
