@@ -36,6 +36,11 @@ class VideoController extends Controller
     public function store(Request $request)
     {
         {
+            $data = request()->validate([
+                'title' => 'required|max:255',
+                'description' => 'required',
+                'video' => 'mimetypes:video/avi,video/mpeg,video/mp4'
+            ]);
             $video = Youtube::upload($request->file('video')->getPathName(), [
                 'title'       => $request->input('title'),
                 'description' => $request->input('description')
