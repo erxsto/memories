@@ -69,4 +69,5 @@ Route::group(['middleware' => 'auth'], function () {
     //Youtube
     Route::resource('video', 'VideoController');
     
+    Route::name('eliminarArticulo')->get('eliminarArticulo/{id}','FileController@eliminarArticulo');
 });

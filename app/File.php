@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class file extends Model
 {
-    protected $fillable = ['url', 'user_id', 'id_destinatario'];
+    protected $fillable = ['url', 'user_id', 'id_destinatario','iof','nombre'];
 
     //Relacion uno a muchos inverso
     public function user(){

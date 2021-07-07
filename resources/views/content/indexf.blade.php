@@ -26,8 +26,8 @@
 </section
 <section id="highlights" class="wrapper style1">
 	<div class="text-center">
-		<select name="heredero" id="heredero">
-			<option value="">--Selecciona un Heredero--</option>
+		<select class="selectpicker" name="heredero" id="heredero" >
+			<option value=""> &nbsp;&nbsp;&nbsp;Selecciona un Heredero&nbsp;&nbsp;&nbsp;</option>
 
 			@foreach($herederos as $heredero)
 			<option value="{{$heredero->id_destinatario}}">{{$heredero->nombre}}</option>
@@ -92,18 +92,70 @@
 		$.get('/memories/public/api/indexf/' + h_id + '/recuerdos', function(data) {
 			var html_div = '<br><br><div class="container"><div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">';
 			for (var i = 0; i < data.length; i++) {
-				var nombre = '' + data[0].nombre + ' ' + data[0].app + ' ' + data[0].apm + '';
-				html_div += '<div class="col"><div class="p-3 border bg-light"><img src="http://127.0.0.1/memories/public/' + data[i].url + '" alt="http://127.0.0.1/memories/public/' + data[i].url + '" class="img-thumbnail" alt="" width="236" height="236"></div></div><br>';
+
+				var nombreh = '' + data[0].nombre + ' ' + data[0].app + ' ' + data[0].apm + '';
+				
+				if(data[i].iof == 'i'){
+				html_div += '<div class="col"><div class="p-3 border bg-light"><div class="content"><img src="http://127.0.0.1/memories/public/' + data[i].url + '" alt="http://127.0.0.1/memories/public/' + data[i].url + '" class="img-thumbnail" alt="" width="236" height="236"><br>'+data[i].nombrea+'</div></div><br><button id="eliminarArticulo" onclick="eliminarArticulo('+data[i].id+')" class="btn btn-outline btn-danger"><i class="fa fa-trash"></i></button></div>';
+				}else{
+				html_div += '<div class="col"><div class="p-3 border bg-light"><div class="content"><img src="./images/fileee.png" alt="http://127.0.0.1/memories/public/' + data[i].url + '" class="img-thumbnail" alt="" width="236" height="236"><br>'+data[i].nombrea+'</div></div><br><button id="eliminarArticulo" onclick="eliminarArticulo('+data[i].id+')" class="btn btn-outline btn-danger"><i class="fa fa-trash"></i></button></div>';
+				}
+				
 				$('#recuerdo_h').html(html_div);
 			}
-			html_div += '</div></div><br><br><div class="alert alert-info" role="alert"> Recuerdos de ' + nombre + '</div><br><br>';
+			if(nombreh!=undefined){
+			html_div += '</div></div><br><br><div class="alert alert-info" role="alert"> Recuerdos de ' + nombreh + '</div><br><br>';
 			$('#recuerdo_h').html(html_div);
+			}else{
+			$('#recuerdo_h').html('</div></div><br><br><div class="alert alert-dark" role="alert"> No hay recuerdos de éste usuario.</div><br><br>');
 
+			}
 		});
 
 
 
 
 	}
+
+	
+
+	function eliminarArticulo(id) {
+		 
+		 
+		Swal.fire({
+			title: '¿Estás seguro?',
+			text: "¡Este recuerdo se eliminará definitivamente!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Si, ¡eliminar!',
+			cancelButtonText: 'Cancelar'
+		}).then((result) => {
+				if (result.isConfirmed) {
+
+
+					$.ajax({
+		    		url: '/memories/public/eliminarArticulo/' + id,
+		    		type: 'GET',
+		    		success: function(result) {
+					
+						//  console.log(result);
+						window.location.reload();
+						Swal.fire(
+						'Eliminado!',
+						'El recuerdo se eliminó con éxito.',
+						'success') 
+					
+					}
+		 			});
+				}
+		})
+		 
+	} 
+
+</script>
+<script>
+
 </script>
 @endsection

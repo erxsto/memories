@@ -22,6 +22,8 @@ class CreateFilesTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
             $table->string('url');
+            $table->string('iof');
+            $table->string('nombre');
             $table->timestamps();
         });
     }

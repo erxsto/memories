@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use Redirect;
 
 class FileController extends Controller
 
@@ -34,10 +35,39 @@ class FileController extends Controller
 
         // return File::where('id_destinatario', $id)->get();
 
-        return \DB::select('SELECT f.id, f.id_destinatario, d.id_destinatario , d.nombre , d.app, d.apm, f.url
+        $herederos = \DB::select('SELECT f.id, f.id_destinatario ,f.iof , f.nombre as nombrea, d.id_destinatario , d.nombre , d.app, d.apm, f.url
         FROM files f, destinatarios d 
         WHERE f.id_destinatario = d.id_destinatario AND f.id_destinatario = ' . $id);
+
+        return response()->json(
+            $herederos
+        );
     }
+
+    public function eliminarArticulo($id) {
+      // delete
+      $recuerdo = File::find($id);
+      $url = str_replace('storage', 'public', $recuerdo->url);
+        Storage::delete($url);
+      $recuerdo->delete();
+    
+        $usuario = User::find(auth()->id());
+        if($recuerdo->iof == "i"){
+            $int = (int)$usuario->num_i;
+            $usuario->update(["num_i" => $int+1 ]);
+        }else{
+        $int = (int)$usuario->num_f;
+        $usuario->update(["num_f" => $int+1 ]);
+        }
+        
+        return redirect()->route('indexf')->with('eliminar', 'ok');
+    }
+
+
+
+    //AJAX
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -77,9 +107,10 @@ class FileController extends Controller
         $request->validate([
             'file' => 'required'
         ]);
-
+        
         $nombre = Str::random(10) . $request->file('file')->getClientOriginalName();
         $ruta = storage_path() . '\app\public\archivos/' . $nombre;
+        $nombrearch = $request->file('file')->getClientOriginalName();
         Image::make($request->file('file'))
             ->resize(1200, null, function ($constraint) {
                 $constraint->aspectRatio();
@@ -88,7 +119,9 @@ class FileController extends Controller
         File::create([
             'user_id' => auth()->user()->id,
             'id_destinatario' => $request->get('heredero'),
-            'url' => '/storage/archivos/' . $nombre
+            'url' => '/storage/archivos/' . $nombre,
+            'iof' => 'i',
+            'nombre' => $nombrearch
         ]);
         $usuario = User::find(auth()->id());
 
@@ -107,11 +140,14 @@ class FileController extends Controller
         ]);
         $nombre = Str::random(10) . $request->file('file')->getClientOriginalName();
         $ruta = storage_path() . '\app\public\archivos/' . $nombre;
+        $nombrearch = $request->file('file')->getClientOriginalName();
         $archivos = $request->file('file')->store('public/archivos');
         File::create([
             'user_id' => auth()->user()->id,
             'id_destinatario' => $request->get('heredero'),
-            'url' => '/storage/archivos/' . $nombre
+            'url' => '/storage/archivos/' . $nombre,
+            'iof' => 'f',
+            'nombre' => $nombrearch
         ]);
         $usuario = User::find(auth()->id());
 
