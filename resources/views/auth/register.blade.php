@@ -146,8 +146,7 @@
                             <label for="imagen" class="col-md-4 col-form-label tet-md-right">{{ __('imagen') }}</label>
 
                             <div class="col-md-6">
-                                <input id="imagen" type="text" class="form-control @error('imagen') is-invalid @enderror" name="imagen" value="{{ old('imagen') }}" required autocomplete="imagen" autofocus>
-
+                                <input type="file" id="imagen" class="form-control @error('imagen') is-invalid @enderror" name="imagen" value="{{ old('imagen') }}">
                                 @error('imagen')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

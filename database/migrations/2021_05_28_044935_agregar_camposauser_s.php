@@ -19,13 +19,13 @@ class AgregarCamposauserS extends Migration
             $table->date('fn');
             $table->string('telefono',14)->nullable();
             $table->string('tip_usu',30);
-            $table->string('num_h',30);
-            $table->string('num_t',30);
-            $table->string('num_i',30);
-            $table->string('num_f',30);
-            $table->string('num_a',30);
-            $table->string('num_v',30);
-            $table->string('imagen',30)->nullable();
+            $table->string('num_h',30)->nullable();
+            $table->string('num_t',30)->nullable();
+            $table->string('num_i',30)->nullable();
+            $table->string('num_f',30)->nullable();
+            $table->string('num_a',30)->nullable();
+            $table->string('num_v',30)->nullable();
+            $table->binary('imagen');
         });
     }
 
