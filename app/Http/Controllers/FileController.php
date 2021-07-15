@@ -24,7 +24,9 @@ class FileController extends Controller
     public function indexf()
     {
         $files = File::all();
-        $herederos = HerederosModel::all();
+        $herederos = \DB::select('SELECT * FROM  destinatarios d 
+        WHERE d.user_id = '. auth()->user()->id );
+        
         return view('content/indexf')
             ->with(['herederos' => $herederos])
             ->with(['files' => $files]);

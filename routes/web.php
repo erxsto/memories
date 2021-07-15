@@ -64,7 +64,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::name('registro_h')->get('registro_h/','HerederosController@registro_h');
     Route::name('guardar_registro')->post('guardar_registro/','HerederosController@guardar_registro');
-
+    Route::name('mis_herederos')->get('mis_herederos/','HerederosController@mis_herederos');
+    Route::name('eliminar_h')->delete('eliminar_h/{hro}','HerederosController@eliminar_h');
 
     //Youtube
     Route::resource('video', 'VideoController');

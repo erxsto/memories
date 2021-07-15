@@ -4,6 +4,7 @@
 
 				<div class="container">
                   <!-- Content here -->
+					<a href="./mis_herederos"> Mis Herederos </a>
                   <br><br> <center> <h2>Registro</h2><br><br>    </center>
                 <hr>
 				<form action="{{ route('guardar_registro')}}" method="post" enctype="multipart/form-data">
