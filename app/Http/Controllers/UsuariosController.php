@@ -102,11 +102,11 @@ class UsuariosController extends Controller
 
         $usuar = Auth::user();
         $extension = $request->file('imagen')->getClientOriginalName();
-        $filename = $usuar->id . '.' . $extension;
+        $filename = time(). '.' . $extension;
         $path = public_path('images/Usuarios/'.$filename);
 
         Image::make($request->file('imagen'))
-        ->fit(144,144)
+        ->fit(244,244)
         ->save($path);
 
         $usuar->imagen = $filename;
