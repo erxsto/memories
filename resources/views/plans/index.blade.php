@@ -37,13 +37,13 @@
                            
                                 @if ($plan->description)
 								@php
-								$pizza  = strval($plan->description);
-								$porciones = explode("- ", $pizza);
+								$descripcion  = strval($plan->description);
+								$partes_separadas = explode("- ", $descripcion);
 								for($i=0; $i <= 4; $i++){
 						echo'<tr>';
                         echo'<td>';
-                                echo $porciones[$i]; // porción1 
-								echo '&nbsp;&nbsp;<br>'; // porción1
+                                echo $partes_separadas[$i];  
+								echo '&nbsp;&nbsp;<br>'; 
                         echo'</td>';
                         echo'<td>
                                 <img width="15px;" src="images/paloma.png" alt="paloma">
