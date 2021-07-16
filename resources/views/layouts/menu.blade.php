@@ -27,7 +27,6 @@
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recuerdos</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <ul>
-                        <a class="dropdown-item" href="{{route('mis_herederos')}}">Mis herederos</a>
                         <a class="dropdown-item" href="{{route('indexf')}}">Mis recuerdos</a>
                         <a class="dropdown-item" href="{{route('createf')}}">Subir recuerdos</a>
                         <a class="dropdown-item" href="{{ url('/video') }}">Subir videos</a>
@@ -59,6 +58,9 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{route('mis_herederos')}}">Mis herederos</a>
+                    <a class="dropdown-item" href="./perfil">Mi cuenta</a>
+                    <a class="dropdown-item" href="./contraseña">Cambiar Contraseña</a>
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         {{ __('Salir') }}

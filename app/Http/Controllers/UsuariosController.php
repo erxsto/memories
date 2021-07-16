@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Plan;
 use App\UsuariosModel;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 
 class UsuariosController extends Controller
 {
@@ -52,5 +56,60 @@ class UsuariosController extends Controller
             
                 return redirect()->route("planes");
         
+    }
+
+    public function perfil(){
+
+        $usr = \DB::select('SELECT * FROM  users u
+        WHERE u.id = 1');
+        
+        return view('content.perfil')->with(['usr' => $usr]);
+        
+    }
+
+    public function editar_usr($id){
+       
+        $user = User::find($id);
+        return view('content.editar_usr')
+        ->with(['user'=> $user]);
+    }
+    public function salvar(user $id, Request $request){
+        
+        $id->update($request->only(
+            'name', 
+            'email',
+             'app','apm',
+             'fn',
+             'telefono',
+             'tip_usu',
+             )
+            );
+        return redirect()->route('perfil',['id' => $id->id]);
+        //--- editar_usr 
+    }
+
+    public function actimg(Request $request){
+
+        $this->validate($request,[
+
+            'imagen' => 'required|image'
+        ]);
+
+        $usuar = Auth::user();
+        $extension = $request->file('imagen')->getClientOriginalName();
+        $filename = $usuar->id . '.' . $extension;
+        $path = public_path('images/Usuarios/'.$filename);
+
+        Image::make($request->file('imagen'))
+        ->fit(144,144)
+        ->save($path);
+
+        $usuar->imagen = $extension;
+        $usuar->save();
+
+        $data['success'] = true;
+        $data['filename'] = $filename;
+
+        return $data;
     }
 }

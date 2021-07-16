@@ -72,3 +72,10 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::name('eliminarArticulo')->get('eliminarArticulo/{id}','FileController@eliminarArticulo');
 });
+
+    //Perfil 
+    Route::name('perfil')->get('perfil/','UsuariosController@perfil');
+
+    Route::name('editar_usr')->get('editar_usr/{id}','UsuariosController@editar_usr');
+    Route::name('salvar')->put('salvar/{id}', 'UsuariosController@salvar'); 
+    Route::name('actimg')->post('actimg/', 'UsuariosController@actimg'); 
