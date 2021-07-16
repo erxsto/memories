@@ -6,8 +6,14 @@
             <div class="col-4 col-12-medium">
                 @foreach ($plans as $plan)
                 <section class="highlight">
-                    <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-                    <h3>{{ $plan->name }}</a></h3>
+					@if($plan->name=='Premium')
+                    <a href="#" class="image featured"><img src="images/pre.png" alt="" style="width: 80%"/></a>
+                    <h3>Plan {{ $plan->name }}</a></h3>
+					@else
+					<a href="#" class="image featured"><img src="images/vip.png" alt="" style="width: 100%"/></a>
+					<h3>{{ $plan->name }}</a></h3>
+					@endif
+                    
 
 
                     <table style="color:#000000">
@@ -27,16 +33,30 @@
                             <td><br></td>
                             <td><br></td>
                         </tr>
-                        <tr>
-                            <td>
+                        
+                           
                                 @if ($plan->description)
-                                {{ $plan->description }}
-                                @endif
-                            </td>
-                            <td>
+								@php
+								$pizza  = strval($plan->description);
+								$porciones = explode("- ", $pizza);
+								for($i=0; $i <= 4; $i++){
+						echo'<tr>';
+                        echo'<td>';
+                                echo $porciones[$i]; // porción1 
+								echo '&nbsp;&nbsp;<br>'; // porción1
+                        echo'</td>';
+                        echo'<td>
                                 <img width="15px;" src="images/paloma.png" alt="paloma">
                             </td>
-                        </tr>
+                        		
+						</tr>';
+								
+									
+								}
+                                @endphp
+                                @endif
+                            
+                            
                     </table>
                     <ul class="actions">
                         <li><a href="{{ url('/plan', $plan->slug) }}"  class="button style1">Seleccionar</a></li>
