@@ -6,11 +6,11 @@
 					PERFIL - CUENTA <text class="transformacion2 free">{{auth()->user()->tip_usu}}</text>
 					<br><br><br>
 					@foreach($usr as $us)
-					<form action="{{ url('actimg/') }}" id="avatarForm">
+					<form action="{{ url('actimg/') }}" id="avatarForm" enctype="multipart/form-data">
 						@csrf
 						<input type="file" style="display: none" id="avatarInput">
 					</form>
-					<img src="{{ asset('images/Usuarios/'.$us->imagen) }}" width="18%" class="img-radius" alt="User-Profile-Image" id="avatarImage">
+					<img src="{{ asset('images/Usuarios/'.$us->imagen) }}" width="18%" class="img-radius" alt="no-image" id="avatarImage" name="avatarImage">
 					<br><br>
 					Nombre: <h5 class="f-w-600"> {{ $us->name }} {{ $us->app }} {{ $us->apm }}</h5>
 				</center>

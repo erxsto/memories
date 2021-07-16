@@ -10,6 +10,11 @@ use App\UsuariosModel;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
+use Redirect;
 
 
 class UsuariosController extends Controller
@@ -61,7 +66,7 @@ class UsuariosController extends Controller
     public function perfil(){
 
         $usr = \DB::select('SELECT * FROM  users u
-        WHERE u.id = 1');
+        WHERE u.id = '.auth()->user()->id);
         
         return view('content.perfil')->with(['usr' => $usr]);
         
@@ -92,7 +97,7 @@ class UsuariosController extends Controller
 
         $this->validate($request,[
 
-            'imagen' => 'required|image'
+            'imagen' => 'required|file'
         ]);
 
         $usuar = Auth::user();
@@ -104,7 +109,7 @@ class UsuariosController extends Controller
         ->fit(144,144)
         ->save($path);
 
-        $usuar->imagen = $extension;
+        $usuar->imagen = $filename;
         $usuar->save();
 
         $data['success'] = true;

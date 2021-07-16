@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
+use Redirect;
 
 class RegisterController extends Controller
 {
@@ -57,7 +62,7 @@ class RegisterController extends Controller
             'fn' => ['required', 'date'],
             'telefono' => ['required', 'string', 'max:13'],
             // 'tip_usu' => ['required', 'string', 'max:255'],
-            'imagen' => ['string', 'max:255'],
+            'imagen' => ['file', 'max:255'],
         ]);
     }
 
@@ -69,6 +74,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $request = app('request');
+        if($request->hasfile('imagen')){
+            $imagen = $request->file('imagen');
+            $name = $imagen->getClientOriginalName();
+            $filename = time() . '_' . $name ;
+            Image::make($imagen)->resize(300, 300)->save( public_path('/images/Usuarios/' . $filename) );
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -80,7 +92,8 @@ class RegisterController extends Controller
             'tip_usu' => 'free',
             'num_h' => 3,
             'num_t' => 5,
-            'imagen' => $data['imagen'],
+            'imagen' => $filename,
         ]);
+    }
     }
 }

@@ -25,7 +25,7 @@ class AgregarCamposauserS extends Migration
             $table->string('num_f',30)->nullable();
             $table->string('num_a',30)->nullable();
             $table->string('num_v',30)->nullable();
-            $table->binary('imagen');
+            $table->string('imagen',50)->nulleable();
         });
     }
 
