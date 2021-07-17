@@ -54,8 +54,7 @@ class HerederosController extends Controller
 
     public function eliminar_h(HerederosModel $hro)
     {
-        $hro = \DB::select('SELECT * FROM  destinatarios d
-        WHERE d.id_destinatario = '. $hro->id_destinatario);
+        $hro = HerederosModel::find($hro->id_destinatario);
         $hro->delete();
         return redirect()->route('mis_herederos')->with('eliminar', 'ok');
     }
