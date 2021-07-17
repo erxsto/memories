@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\HerederosModel;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class HerederosController extends Controller
 {
@@ -51,10 +52,10 @@ class HerederosController extends Controller
 
     }
 
-    public function eliminar_h(Hro $hro)
+    public function eliminar_h(HerederosModel $hro)
     {
         $hro = \DB::select('SELECT * FROM  destinatarios d
-        WHERE d.user_id = '. $hro->id);
+        WHERE d.id_destinatario = '. $hro->id_destinatario);
         $hro->delete();
         return redirect()->route('mis_herederos')->with('eliminar', 'ok');
     }

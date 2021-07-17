@@ -1,47 +1,41 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
+	<!-- Content here -->
+	<center>
+		<h4>Mis Herederos</h4>
+	</center>
+	<br>
+	<table class="table table-hover table-dark">
+		<tbody>
 
+			<tr style="border: gray 2px solid;">
+				<td>Nombre</td>
+				<td>Primer Apellido</td>
+				<td>Segundo Apellido</td>
+				<td>Correo</td>
+				<td> <br> </td>
+			</tr>
+			@foreach($h as $hro)
+			<tr>
+				<td>{{$hro->nombre}}</td>
+				<td>{{$hro->app}}</td>
+				<td>{{$hro->apm}}</td>
+				<td>{{$hro->correo}}</td>
+				<td>
+					<form action="{{ route('eliminar_h', $hro) }}" class="d-inline formulario-eliminar" method="post">
+						@method('DELETE')
+						@csrf
+						<button type="submit" class="btn btn-outline-danger">Eliminar</button>
+					</form>
+				</td>
+			</tr>
+			@endforeach
 
-				<div class="container">
-                  <!-- Content here -->
-				<center>	<h4>Mis Herederos</h4>
-				</center>
-					<br>
-					<table class="table table-hover table-dark">
-						<tbody>
-
-							<tr style="border: gray 2px solid;">
-								<td>Nombre</td>
-								<td>Primer Apellido</td>
-								<td>Segundo Apellido</td>
-								<td>Correo</td>
-								<td> <br> </td>
-							</tr>
-						
-						@foreach($h as $hro)
-
-							<tr>
-								<td>{{$hro->nombre}}</td>
-								<td>{{$hro->app}}</td>
-								<td>{{$hro->apm}}</td>
-								<td>{{$hro->correo}}</td>
-								<td> 
-								
-                            		<form action="{{ route('eliminar_h', $hro) }}" class="d-inline formulario-eliminar" method="post">
-                            		    
-                            		    @csrf
-                            		    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
-                            		</form>
-								
-								</td>
-							</tr>
-						@endforeach
-
-						</tbody>
-					</table>	
-                </div>
-				<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+		</tbody>
+	</table>
+</div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @if (session('eliminar') == 'ok')
 <script>
 	Swal.fire(
