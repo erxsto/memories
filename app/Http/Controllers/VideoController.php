@@ -14,7 +14,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        return view('content/video');
+        $videos = Youtube::all();
+        return view('content.videoindex', compact('videos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class VideoController extends Controller
      */
     public function create()
     {
-        //
+        return view('content/video');
     }
 
     /**
@@ -90,8 +91,9 @@ class VideoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($video)
     {
-        //
+        $video = Youtube::delete($video->getVideoId());
+        return redirect('videoindex');
     }
 }

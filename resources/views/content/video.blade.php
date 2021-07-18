@@ -12,6 +12,9 @@
     </ul>
 </div>
 @endif
+<p align="right">
+    <a href="./youtube/auth" class="btn btn-success">Inicia sesión</a>
+</p><br><br>
 <form action="{{ url('video') }}" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="titulo">Título</label>
@@ -29,5 +32,6 @@
     </div>
     {{ csrf_field() }}
 </form>
-
+<script>
+</script>
 @endsection

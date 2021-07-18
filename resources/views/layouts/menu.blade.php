@@ -29,7 +29,8 @@
                     <ul>
                         <a class="dropdown-item" href="{{route('indexf')}}">Mis recuerdos</a>
                         <a class="dropdown-item" href="{{route('createf')}}">Subir recuerdos</a>
-                        <a class="dropdown-item" href="{{ url('/video') }}">Subir videos</a>
+                        <a class="dropdown-item" href="{{route('video.create')}}">Subir videos</a>
+                        <a class="dropdown-item" href="{{route('video.index')}}">Eliminar video</a>
                         <a class="dropdown-item" href="{{route('textindex')}}">Mis recuerdos-texto</a>
                         <a class="dropdown-item" href="{{route('textcreates')}}">Subir recuerdos-texto</a>
                     </ul>

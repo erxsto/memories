@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::name('planes')->get('planes/','UsuariosController@planes');
+Route::name('planes')->get('planes/', 'UsuariosController@planes');
 
 //--------------registro--------------//
 
@@ -22,7 +23,7 @@ Route::name('planes')->get('planes/','UsuariosController@planes');
 // Route::name('login')->get('login/','LoginController@login');
 // Route::name('validar')->post('validar/','LoginController@validar');
 // Route::name('logout')->get('logout/','LoginController@logout');
-Route::name('perfil')->get('perfil/','LoginController@perfil');
+Route::name('perfil')->get('perfil/', 'LoginController@perfil');
 
 
 
@@ -40,42 +41,38 @@ Route::get('/plans', 'PlansController@index');
 
 Route::group(['middleware' => 'auth'], function () {
     //--------------files--------------//
-    Route::name('indexf')->get('indexf/','FileController@indexf');
-    Route::name('storef')->post('storef/','FileController@storef');
-    Route::name('storeff')->post('storeff/','FileController@storeff');
-    Route::name('createf')->get('createf/','FileController@createf');
-    Route::name('showf')->get('showf/{file}','FileController@showf');
-    Route::name('updatef')->put('updatef/{file}','FileController@updatef');
-    Route::name('destroyf')->delete('destroyf/{file}','FileController@destroyf');
-    Route::name('editf')->get('editf/{file}','FileController@editf');
+    Route::name('indexf')->get('indexf/', 'FileController@indexf');
+    Route::name('storef')->post('storef/', 'FileController@storef');
+    Route::name('storeff')->post('storeff/', 'FileController@storeff');
+    Route::name('createf')->get('createf/', 'FileController@createf');
+    Route::name('showf')->get('showf/{file}', 'FileController@showf');
+    Route::name('updatef')->put('updatef/{file}', 'FileController@updatef');
+    Route::name('destroyf')->delete('destroyf/{file}', 'FileController@destroyf');
+    Route::name('editf')->get('editf/{file}', 'FileController@editf');
+    Route::name('eliminarArticulo')->get('eliminarArticulo/{id}', 'FileController@eliminarArticulo');
 
-    
     Route::get('/plan/{plan}', 'PlansController@show');
     Route::get('/braintree/token', 'BraintreeTokenController@token');
     Route::post('/subscribe', 'SubscriptionsController@store');
-    Route::name('textcreates')->get('textcreates/','TextsController@textcreates');
-    Route::name('store')->post('store/','TextsController@store');
-    Route::name('textindex')->get('textindex/','TextsController@textindex');
-    Route::name('texteditar')->get('texteditar/{text}','TextsController@texteditar');
-    Route::name('update')->put('update/{text}','TextsController@update');
-    Route::name('destroy')->delete('destroy/{text}','TextsController@destroy');
+    Route::name('textcreates')->get('textcreates/', 'TextsController@textcreates');
+    Route::name('store')->post('store/', 'TextsController@store');
+    Route::name('textindex')->get('textindex/', 'TextsController@textindex');
+    Route::name('texteditar')->get('texteditar/{text}', 'TextsController@texteditar');
+    Route::name('update')->put('update/{text}', 'TextsController@update');
+    Route::name('destroy')->delete('destroy/{text}', 'TextsController@destroy');
 
     // Registro Herederos
 
-    Route::name('registro_h')->get('registro_h/','HerederosController@registro_h');
-    Route::name('guardar_registro')->post('guardar_registro/','HerederosController@guardar_registro');
-    Route::name('mis_herederos')->get('mis_herederos/','HerederosController@mis_herederos');
-    Route::name('eliminar_h')->delete('eliminar_h/{hro}','HerederosController@eliminar_h');
+    Route::name('registro_h')->get('registro_h/', 'HerederosController@registro_h');
+    Route::name('guardar_registro')->post('guardar_registro/', 'HerederosController@guardar_registro');
+    Route::name('mis_herederos')->get('mis_herederos/', 'HerederosController@mis_herederos');
+    Route::name('eliminar_h')->delete('eliminar_h/{hro}', 'HerederosController@eliminar_h');
 
     //Youtube
     Route::resource('video', 'VideoController');
-    
-    Route::name('eliminarArticulo')->get('eliminarArticulo/{id}','FileController@eliminarArticulo');
 });
-
-    //Perfil 
-    Route::name('perfil')->get('perfil/','UsuariosController@perfil');
-
-    Route::name('editar_usr')->get('editar_usr/{id}','UsuariosController@editar_usr');
-    Route::name('salvar')->put('salvar/{id}', 'UsuariosController@salvar'); 
-    Route::name('actimg')->post('actimg/', 'UsuariosController@actimg'); 
+//Perfil 
+Route::name('perfil')->get('perfil/', 'UsuariosController@perfil');
+Route::name('editar_usr')->get('editar_usr/{id}', 'UsuariosController@editar_usr');
+Route::name('salvar')->put('salvar/{id}', 'UsuariosController@salvar');
+Route::name('actimg')->post('actimg/', 'UsuariosController@actimg');
