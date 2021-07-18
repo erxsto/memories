@@ -13,7 +13,7 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $videos = Youtube::getVideoInfo('YbIkHQVpDJ8');
         return view('content.videoindex', compact('videos'));

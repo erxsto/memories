@@ -11,7 +11,7 @@ return [
      * Client Secret.
      */
     'client_secret' => env('GOOGLE_CLIENT_SECRET', null),
-
+    'key' => env('YOUTUBE_API_KEY', null),
     /**
      * Scopes.
      */

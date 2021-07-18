@@ -16,8 +16,8 @@
                     @foreach ($videos as $video)
                     <tr>
                         <td>{{ $video['id']}}</td>
-                        <td>{{ $video['titulo']}}</td>
-                        <td>{{$video['desc']}}</td>
+                        <td>{{ $video['title']}}</td>
+                        <td>{{$video['description']}}</td>
                         <td>
                             <form action="{{ route('destroy', $video) }}" class="d-inline formulario-eliminar" method="POST">
                                 @method('DELETE')
@@ -28,7 +28,13 @@
 
                     </tr>
                     @endforeach
+                    
                 </tbody>
+                @foreach($videos as $data)
+                <div class="well">
+                    {{ $data->id->videoId}}
+               </div>
+           @endforeach
             </table>
         </div>
     </div>
