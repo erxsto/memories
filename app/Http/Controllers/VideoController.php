@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Youtube;
+use Dawson\Youtube\Facades\Youtube as YoutubeUpload;
+use Alaouy\Youtube\Facades\Youtube;
 
 class VideoController extends Controller
 {
@@ -12,12 +13,11 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $videos = Youtube::all();
+        $videos = Youtube::getVideoInfo('YbIkHQVpDJ8');
         return view('content.videoindex', compact('videos'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -42,7 +42,7 @@ class VideoController extends Controller
                 'description' => 'required',
                 'video' => 'mimetypes:video/avi,video/mpeg,video/mp4'
             ]);
-            $video = Youtube::upload($request->file('video')->getPathName(), [
+            $video = YoutubeUpload::upload($request->file('video')->getPathName(), [
                 'title'       => $request->input('title'),
                 'description' => $request->input('description')
             ]);
@@ -93,7 +93,7 @@ class VideoController extends Controller
      */
     public function destroy($video)
     {
-        $video = Youtube::delete($video->getVideoId());
+        $video = YoutubeUpload::delete($video->getVideoId());
         return redirect('videoindex');
     }
 }

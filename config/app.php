@@ -166,7 +166,7 @@ return [
          * Package Service Providers...
          */
         Dawson\Youtube\YoutubeServiceProvider::class,
-
+        Alaouy\Youtube\YoutubeServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -227,7 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Youtube' => Dawson\Youtube\Facades\Youtube::class,
-
+        'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
     ],
 
 ];
