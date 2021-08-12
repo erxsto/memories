@@ -26,6 +26,7 @@ class AgregarCamposauserS extends Migration
             $table->string('num_a',30)->nullable();
             $table->string('num_v',30)->nullable();
             $table->string('imagen',50)->nulleable();
+            $table->dateTime('last_login')->nullable();
         });
     }
 
@@ -49,6 +50,7 @@ class AgregarCamposauserS extends Migration
             $table->dropColumn('num_a');
             $table->dropColumn('num_v');
             $table->dropColumn('imagen');
+            $table->dropColumn('last_login');
         });
     }
 }
