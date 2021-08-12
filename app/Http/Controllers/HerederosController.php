@@ -54,8 +54,11 @@ class HerederosController extends Controller
 
     public function eliminar_h(HerederosModel $hro)
     {
+        $usuario = User::find(auth()->id());
         $hro = HerederosModel::find($hro->id_destinatario);
         $hro->delete();
+        $int = (int)$usuario->num_h;
+        $usuario->update(["num_h" => $int+1 ]);
         return redirect()->route('mis_herederos')->with('eliminar', 'ok');
     }
 
