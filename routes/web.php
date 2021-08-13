@@ -76,3 +76,9 @@ Route::name('perfil')->get('perfil/', 'UsuariosController@perfil');
 Route::name('editar_usr')->get('editar_usr/{id}', 'UsuariosController@editar_usr');
 Route::name('salvar')->put('salvar/{id}', 'UsuariosController@salvar');
 Route::name('actimg')->post('actimg/', 'UsuariosController@actimg');
+
+// Heredero login
+Route::name('login_h')->get('login_h/', 'HerederosController@login_h');
+Route::name('validar_h')->get('validar_h/', 'HerederosController@validar_h');
+Route::name('index_h')->get('index_h/', 'HerederosController@index_h');
+
