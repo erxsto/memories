@@ -81,4 +81,5 @@ Route::name('actimg')->post('actimg/', 'UsuariosController@actimg');
 Route::name('login_h')->get('login_h/', 'HerederosController@login_h');
 Route::name('validar_h')->get('validar_h/', 'HerederosController@validar_h');
 Route::name('index_h')->get('index_h/', 'HerederosController@index_h');
+Route::name('downloadfile')->get('download/{id}', 'HerederosController@show');
 

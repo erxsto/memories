@@ -63,6 +63,7 @@
                         </div>
                     </div>
                     @else
+                    <br><br><br>
                     <a href="./indexf">Ya no puedes agregar más Archivos, Gestiona los que ya tienes para continuar...</a>
                     @endif
                     </p>

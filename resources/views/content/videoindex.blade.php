@@ -12,7 +12,7 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                     @foreach ($videos as $video)
                     <tr>
                         <td>{{ $video['id']}}</td>

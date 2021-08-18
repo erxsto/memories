@@ -8,6 +8,7 @@ use App\User;
 use App\File;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class HerederosController extends Controller
 {
@@ -126,10 +127,13 @@ class HerederosController extends Controller
     public function index_h(){
 
         $herederos = DB::select('SELECT * FROM destinatarios ,users ,files where files.user_id =  users.id and users.id = destinatarios.user_id and destinatarios.id_destinatario = ' .session("session_id"));
-       
         return view('h.index_h')
         ->with(['herederos' => $herederos]);
 
 
+    }
+    public function show($id){
+        $d = File::find($id);
+        return Storage::download($d->url, $d->nombre);
     }
 }

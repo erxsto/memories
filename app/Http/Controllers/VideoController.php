@@ -15,7 +15,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $videos = Youtube::getVideoInfo('YbIkHQVpDJ8');
+        $videos= Youtube::getVideoId(['YbIkHQVpDJ8']);
         return view('content.videoindex', compact('videos'));
     }
     /**
