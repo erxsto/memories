@@ -134,6 +134,6 @@ class HerederosController extends Controller
     }
     public function show($id){
         $d = File::find($id);
-        return Storage::download($d->url, $d->nombre);
+        return Storage::disk('public')->download($d->url);
     }
 }
